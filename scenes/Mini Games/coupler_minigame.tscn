@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfy502n4nbq4v"]
+
+[ext_resource type="Texture2D" uid="uid://b7imsl31jpmsy" path="res://assets/tools/Game Mechanics/Wiring/10/left.png" id="1_36lg6"]
+[ext_resource type="Script" path="res://scripts/Game Mechanics/Mini Games/coupler_minigame.gd" id="1_qah5g"]
+[ext_resource type="Texture2D" uid="uid://b5q57vig4jn2t" path="res://assets/tools/Game Mechanics/Wiring/10/right.png" id="2_l6mxi"]
+[ext_resource type="Texture2D" uid="uid://c3s1suolooy1f" path="res://assets/tools/Game Mechanics/Wiring/10/coupler.png" id="3_lcgkk"]
+
+[node name="coupler minigame" type="Control" node_paths=PackedStringArray("wire1", "wire2", "pin1", "pin2", "pin1_glow", "pin2_glow")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 956.0
+offset_top = 708.0
+offset_right = 956.0
+offset_bottom = 708.0
+scale = Vector2(1.59016, 1.20636)
+script = ExtResource("1_qah5g")
+wire1 = NodePath("wire 1")
+wire2 = NodePath("wire 2")
+pin1 = NodePath("pin 1")
+pin2 = NodePath("pin 2")
+pin1_glow = NodePath("pin 1/Node2D")
+pin2_glow = NodePath("pin 2/Node2D")
+glow_color = Color(0, 0.847059, 0.788235, 0.545098)
+glow_size = 40.0
+
+[node name="wire 1" type="Sprite2D" parent="."]
+position = Vector2(-491.774, -159.156)
+texture = ExtResource("1_36lg6")
+
+[node name="wire 2" type="Sprite2D" parent="."]
+position = Vector2(545.227, -159.156)
+texture = ExtResource("2_l6mxi")
+
+[node name="coupler" type="Sprite2D" parent="."]
+position = Vector2(37.1031, -153.354)
+scale = Vector2(0.600515, 0.67923)
+texture = ExtResource("3_lcgkk")
+
+[node name="pin 1" type="Marker2D" parent="."]
+position = Vector2(-116.34, -156.67)
+
+[node name="Node2D" type="Node2D" parent="pin 1"]
+position = Vector2(67.9175, 0)
+
+[node name="pin 2" type="Marker2D" parent="."]
+position = Vector2(188.031, -156.67)
+
+[node name="Node2D" type="Node2D" parent="pin 2"]
+position = Vector2(-70.4332, 0)

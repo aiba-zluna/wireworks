@@ -1,0 +1,129 @@
+[gd_scene load_steps=7 format=3 uid="uid://ctlgpnstpmvg8"]
+
+[ext_resource type="Script" path="res://scripts/Transitions/fade2black.gd" id="1_peb8a"]
+[ext_resource type="Script" path="res://scripts/Root Scenes/rootscene_map_overview.gd" id="1_r4m0e"]
+[ext_resource type="Texture2D" uid="uid://cfic1gw8vsy2x" path="res://assets/maps/Overview1.png" id="2_k130k"]
+[ext_resource type="PackedScene" uid="uid://c8kpvf71tweci" path="res://scenes/User Interface/UI_dialogues.tscn" id="2_vrfou"]
+[ext_resource type="PackedScene" uid="uid://ba1wcg5r4n2r7" path="res://scenes/animations/ani_exclamation.tscn" id="4_533a3"]
+[ext_resource type="PackedScene" uid="uid://blk8vyv4rh2ey" path="res://scenes/animations/ani_question.tscn" id="5_7a32i"]
+
+[node name="Overview Map" type="Node2D" node_paths=PackedStringArray("quest_icon_rural", "quest_icon_sub_urban", "quest_icon_urban", "btn_rural_map", "highlight_rural", "btn_sub_urban_map", "highlight_sub_urban", "btn_urban_map", "highlight_urban", "btn_shop_map", "highlight_shop", "btn_academy_map", "highlight_academy")]
+script = ExtResource("1_r4m0e")
+quest_icon_rural = NodePath("Quest Available/1")
+quest_icon_sub_urban = NodePath("Quest Available/2")
+quest_icon_urban = NodePath("Quest Available/3")
+btn_rural_map = NodePath("btn Rural map")
+highlight_rural = NodePath("btn Rural map/Highlight_Polygon_Rural")
+btn_sub_urban_map = NodePath("btn Sub Urban map")
+highlight_sub_urban = NodePath("btn Sub Urban map/Highlight_Polygon_SubUrban")
+btn_urban_map = NodePath("btn Urban map")
+highlight_urban = NodePath("btn Urban map/Highlight_Polygon_Urban")
+btn_shop_map = NodePath("btn Shop")
+highlight_shop = NodePath("btn Shop/HighlightPolygon_Shop")
+btn_academy_map = NodePath("btn Academy")
+highlight_academy = NodePath("btn Academy/HighlightPolygon_Academy")
+
+[node name="Overview Map image" type="Sprite2D" parent="."]
+position = Vector2(960.175, 540.027)
+scale = Vector2(0.997739, 1.03841)
+texture = ExtResource("2_k130k")
+
+[node name="FadeLayer" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("1_peb8a")
+
+[node name="ColorRect" type="ColorRect" parent="FadeLayer"]
+modulate = Color(0, 0, 0, 0.00392157)
+self_modulate = Color(0, 0, 0, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="btn Rural map" type="Area2D" parent="."]
+position = Vector2(80, -102)
+
+[node name="CollisionPolygon_Rural" type="CollisionPolygon2D" parent="btn Rural map"]
+polygon = PackedVector2Array(380, 106, 1840, 99, 1842, 865, 764, 306, 736, 254, 700.79, 272.539)
+
+[node name="Highlight_Polygon_Rural" type="Polygon2D" parent="btn Rural map"]
+color = Color(1, 1, 0, 0)
+polygon = PackedVector2Array(1842, 106, 377, 105, 699, 275, 736, 256, 764, 307, 1847, 866)
+
+[node name="btn Sub Urban map" type="Area2D" parent="."]
+
+[node name="CollisionPolygon_SubUrban" type="CollisionPolygon2D" parent="btn Sub Urban map"]
+position = Vector2(-638, -57)
+polygon = PackedVector2Array(639, 123, 636, 49, 1094, 56, 1977, 515, 1546, 726, 1461, 678, 1463, 626, 1452, 543, 1403, 520, 1384, 491, 1377, 448, 1251, 378, 1219, 397, 1208, 378, 1206, 225, 1187, 193, 1141, 171, 1101, 197, 1081, 266, 1080, 403, 947, 331, 947, 248, 883, 212, 816.823, 262.523, 707, 212, 704, 155)
+
+[node name="Highlight_Polygon_SubUrban" type="Polygon2D" parent="btn Sub Urban map"]
+position = Vector2(-531, -34)
+color = Color(1, 1, 0, 0)
+polygon = PackedVector2Array(978, 30, 530, 32, 531, 99, 597.389, 131.11, 598, 187, 605, 189, 606, 178, 614, 172, 620, 183, 620, 196, 639, 207, 640, 202, 644, 201, 654, 216, 665, 220, 672, 221, 681, 228, 688, 228, 691, 234, 701, 236, 709, 243, 711, 225, 774, 190, 839.237, 223.35, 840, 313, 851, 308, 914, 342, 916, 352, 922, 350, 924, 356, 979, 383, 980, 376, 973, 372, 974, 242, 988, 233, 989, 193, 1003, 185, 1004, 171, 1017, 163, 1019, 154, 1036, 145, 1070, 164, 1071, 172, 1084, 180, 1085, 193, 1098, 201, 1098, 353, 1107.61, 357.953, 1108, 381, 1143, 361, 1270, 428, 1269, 483, 1285, 475, 1285, 496, 1348, 528, 1347, 657, 1441, 705, 1864, 491, 1372, 236, 1345, 182, 1310, 201)
+
+[node name="btn Urban map" type="Area2D" parent="."]
+
+[node name="CollisionPolygon_Urban" type="CollisionPolygon2D" parent="btn Urban map"]
+position = Vector2(-636.4, 315)
+polygon = PackedVector2Array(632.4, 766, 634.4, -251, 700.4, -218, 706.4, -166, 820.4, -110, 876.4, -160, 946.4, -124, 943.4, -39, 1083.4, 29, 1083.4, -105, 1102.4, -170, 1139.4, -198, 1181.4, -175, 1198.4, -151, 1202.4, 14, 1213.4, 38, 1248.4, 14, 1372.4, 82, 1382.4, 132, 1384.4, 139, 1409.4, 158, 1450.4, 182, 1450.4, 308, 1612.4, 397, 1679.4, 369, 1733.4, 397, 1805.4, 437, 1813.4, 458, 1829.4, 461, 1827.4, 429, 1886.4, 397, 1945.4, 426, 1948.4, 442, 2533.4, 767)
+
+[node name="Highlight_Polygon_Urban" type="Polygon2D" parent="btn Urban map"]
+position = Vector2(-636.4, 315)
+color = Color(1, 1, 0, 0)
+polygon = PackedVector2Array(1212.4, 33, 1212.4, 9, 1202.4, 4, 1203.4, -148, 1189.4, -156, 1189.4, -169, 1176.4, -176, 1175.4, -185, 1141.4, -204, 1124.4, -195, 1122.4, -186, 1109.4, -178, 1108.4, -164, 1094.4, -156, 1094.4, -116, 1079.4, -107, 1078.4, 24, 1085.4, 27, 1084.4, 34, 1029.4, 7, 1028.4, 2, 1024.4, 0, 1023.4, 4, 1019.4, 2, 1019.4, -7, 955.4, -41, 948.4, -36, 944.4, -38, 944.4, -126, 879.4, -160, 816.4, -125, 814.4, -107, 796.4, -116, 757.4, -135, 749.4, -148, 745.4, -147, 744.4, -142, 725.4, -152, 725.4, -166, 718.4, -178, 711.4, -171, 710.4, -161, 703.4, -162, 702.4, -218, 635.4, -252, 635.4, 766, 2537.4, 768, 1951.4, 439, 1950.4, 425, 1888.4, 392, 1824.4, 424, 1824.4, 456, 1809.14, 447.837, 1810.4, 436, 1748.4, 401, 1741.4, 405, 1740.4, 392, 1679.4, 360, 1615.4, 395, 1452.4, 308, 1453.4, 179, 1390.4, 147, 1389.4, 127, 1374.4, 134, 1374.4, 79, 1248.4, 11)
+
+[node name="btn Shop" type="Area2D" parent="."]
+
+[node name="CollisionPolygon_Shop" type="CollisionPolygon2D" parent="btn Shop"]
+position = Vector2(-636.4, 315)
+polygon = PackedVector2Array(1543.4, 351, 1975.4, 145, 2137.4, 230, 2088.4, 254, 2074.4, 237, 2035.4, 244, 2031.36, 281.505, 1962.4, 315, 1887.4, 390, 1824.4, 423, 1823.4, 441, 1823.4, 456, 1810.4, 449, 1809.4, 435, 1678.4, 360, 1614.4, 392)
+
+[node name="HighlightPolygon_Shop" type="Polygon2D" parent="btn Shop"]
+position = Vector2(-636.4, 315)
+color = Color(1, 1, 0, 0)
+polygon = PackedVector2Array(1969.4, 142, 1619.4, 321, 1598.4, 325, 1540.4, 352, 1614.4, 394, 1679.4, 359, 1740.4, 392, 1741.4, 405, 1748.4, 401, 1809.4, 435, 1809.4, 448, 1823.4, 455, 1824.4, 425, 1887.4, 392, 1912.4, 406, 1922.68, 392.214, 1923.4, 352, 1968.4, 313, 1999.4, 329, 1999.4, 305, 2035.4, 285, 2036.4, 249, 2043.4, 248, 2049.4, 249, 2052.4, 254, 2053.4, 252, 2053.4, 243, 2055.4, 240, 2060.4, 240, 2066.4, 240, 2069.4, 244, 2069.4, 251, 2073.4, 248, 2078.4, 248, 2084.4, 251, 2084.4, 259, 2085.4, 260, 2141.4, 231)
+
+[node name="btn Academy" type="Area2D" parent="."]
+
+[node name="CollisionPolygon_Academy" type="CollisionPolygon2D" parent="btn Academy"]
+position = Vector2(-358, 421)
+polygon = PackedVector2Array(1610, 286, 1833, 112, 2283, 344, 2278, 668, 2256, 661, 1675, 334, 1672, 319)
+
+[node name="HighlightPolygon_Academy" type="Polygon2D" parent="btn Academy"]
+position = Vector2(-289, 405)
+color = Color(1, 1, 0, 0)
+polygon = PackedVector2Array(1795, 140, 1737, 171, 1737, 161, 1733, 158, 1727, 157, 1722, 160, 1722, 154, 1719, 150, 1708, 150, 1706, 153, 1705, 164, 1702, 159, 1689, 158, 1688, 195, 1652, 214, 1652, 239, 1620, 223, 1576, 262, 1575, 304, 1557, 309, 1604, 335, 1605, 349, 2185, 676, 2209, 678, 2210, 356)
+
+[node name="Quest Available" type="Node2D" parent="."]
+
+[node name="1" parent="Quest Available" instance=ExtResource("4_533a3")]
+visible = false
+position = Vector2(1085, 66)
+
+[node name="2" parent="Quest Available" instance=ExtResource("4_533a3")]
+visible = false
+position = Vector2(732, 195)
+
+[node name="3" parent="Quest Available" instance=ExtResource("4_533a3")]
+visible = false
+position = Vector2(359, 374)
+
+[node name="Quest Underway" type="Node2D" parent="."]
+
+[node name="1" parent="Quest Underway" instance=ExtResource("5_7a32i")]
+visible = false
+position = Vector2(1279, 243)
+
+[node name="2" parent="Quest Underway" instance=ExtResource("5_7a32i")]
+visible = false
+position = Vector2(924, 374)
+
+[node name="3" parent="Quest Underway" instance=ExtResource("5_7a32i")]
+visible = false
+position = Vector2(552, 551)
+
+[node name="UI_Dialogue" parent="." instance=ExtResource("2_vrfou")]

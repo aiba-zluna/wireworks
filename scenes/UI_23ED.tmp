@@ -1,0 +1,229 @@
+[gd_scene load_steps=8 format=3 uid="uid://dyyfkbco8r3mt"]
+
+[ext_resource type="Script" path="res://scripts/ui_menu.gd" id="1_nmfr3"]
+[ext_resource type="Texture2D" uid="uid://bgku4em0mgo4t" path="res://assets/UI/Inventory1.png" id="2_1ip7e"]
+[ext_resource type="Script" path="res://scripts/Transitions/fade2black.gd" id="2_h6yes"]
+[ext_resource type="FontFile" uid="uid://dkopjbra5u41y" path="res://assets/fonts/Child Hood.otf" id="3_vsfl5"]
+[ext_resource type="Texture2D" uid="uid://dni8puvnd6rfl" path="res://assets/UI/Inventory2.png" id="4_xelwg"]
+[ext_resource type="Texture2D" uid="uid://ctpestuxjgn6r" path="res://assets/UI/Inventory3.png" id="5_gpjf6"]
+[ext_resource type="PackedScene" uid="uid://cl74mheu45dsn" path="res://scenes/UI_hotbar.tscn" id="7_mxr8c"]
+
+[node name="UI_Menu" type="CanvasLayer"]
+script = ExtResource("1_nmfr3")
+
+[node name="Blur" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.6)
+offset_right = 1920.0
+offset_bottom = 1078.0
+color = Color(0, 0, 0, 1)
+
+[node name="FadeLayer" type="CanvasLayer" parent="."]
+script = ExtResource("2_h6yes")
+fade_time = 3.0
+
+[node name="ColorRect" type="ColorRect" parent="FadeLayer"]
+modulate = Color(0, 0, 0, 0.00392157)
+self_modulate = Color(0, 0, 0, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Van Background" type="Sprite2D" parent="."]
+position = Vector2(1101, 538)
+texture = ExtResource("2_1ip7e")
+
+[node name="GridContainer" type="GridContainer" parent="Van Background"]
+offset_left = -569.0
+offset_top = -326.0
+offset_right = 83.0
+offset_bottom = 379.0
+columns = 4
+
+[node name="slot1" type="TextureRect" parent="Van Background/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(160, 175)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="slot2" type="TextureRect" parent="Van Background/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(160, 175)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="slot3" type="TextureRect" parent="Van Background/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(160, 175)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="slot4" type="TextureRect" parent="Van Background/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(160, 175)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="slot5" type="TextureRect" parent="Van Background/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(160, 175)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Panel for Item Info" type="Panel" parent="Van Background"]
+offset_left = 148.0
+offset_top = -326.0
+offset_right = 655.0
+offset_bottom = 379.0
+
+[node name="ItemName" type="Label" parent="Van Background/Panel for Item Info"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 200.0
+offset_right = 489.0
+offset_bottom = 326.0
+theme_override_fonts/font = ExtResource("3_vsfl5")
+theme_override_font_sizes/font_size = 70
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ItemDescription" type="Label" parent="Van Background/Panel for Item Info"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 329.0
+offset_right = 472.0
+offset_bottom = 689.0
+theme_override_fonts/font = ExtResource("3_vsfl5")
+theme_override_font_sizes/font_size = 35
+autowrap_mode = 3
+
+[node name="ItemIcon" type="TextureRect" parent="Van Background/Panel for Item Info"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 21.0
+offset_right = 489.0
+offset_bottom = 200.0
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Notes Background" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1101, 538)
+texture = ExtResource("4_xelwg")
+
+[node name="Options Background" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1101, 538)
+texture = ExtResource("5_gpjf6")
+
+[node name="btn settings" type="Button" parent="Options Background"]
+offset_left = -191.0
+offset_top = -305.0
+offset_right = 195.0
+offset_bottom = -109.0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.207512, 0.207512, 0.207512, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_vsfl5")
+theme_override_font_sizes/font_size = 150
+text = "Settings"
+flat = true
+
+[node name="btn main menu" type="Button" parent="Options Background"]
+offset_left = -245.0
+offset_top = -109.0
+offset_right = 254.0
+offset_bottom = 87.0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.207512, 0.207512, 0.207512, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_vsfl5")
+theme_override_font_sizes/font_size = 150
+text = "Main Menu"
+flat = true
+
+[node name="btn exit" type="Button" parent="Options Background"]
+offset_left = -241.0
+offset_top = 112.0
+offset_right = 239.0
+offset_bottom = 308.0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.207512, 0.207512, 0.207512, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_vsfl5")
+theme_override_font_sizes/font_size = 150
+text = "Exit Game"
+flat = true
+
+[node name="btn Van" type="Button" parent="."]
+offset_left = 560.0
+offset_top = 24.0
+offset_right = 748.0
+offset_bottom = 120.0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.207512, 0.207512, 0.207512, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_vsfl5")
+theme_override_font_sizes/font_size = 70
+text = "Van"
+flat = true
+
+[node name="btn Notes" type="Button" parent="."]
+offset_left = 782.0
+offset_top = 24.0
+offset_right = 970.0
+offset_bottom = 120.0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.207512, 0.207512, 0.207512, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_vsfl5")
+theme_override_font_sizes/font_size = 70
+text = "Notes"
+flat = true
+
+[node name="btn Options" type="Button" parent="."]
+offset_left = 986.0
+offset_top = 15.0
+offset_right = 1174.0
+offset_bottom = 111.0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.207512, 0.207512, 0.207512, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_vsfl5")
+theme_override_font_sizes/font_size = 70
+text = "Options"
+flat = true
+
+[node name="btn close inventory" type="Button" parent="."]
+offset_left = 1558.0
+offset_top = 887.0
+offset_right = 1756.0
+offset_bottom = 995.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_vsfl5")
+theme_override_font_sizes/font_size = 80
+text = "close"
+flat = true
+
+[node name="UiHotbar" parent="." instance=ExtResource("7_mxr8c")]
+offset_top = 154.0
+offset_bottom = -163.0
+
+[connection signal="pressed" from="Options Background/btn main menu" to="." method="_on_btn_main_menu_pressed"]
+[connection signal="pressed" from="Options Background/btn exit" to="." method="_on_btn_exit_pressed"]
+[connection signal="pressed" from="btn close inventory" to="." method="_on_close_inventory_pressed"]

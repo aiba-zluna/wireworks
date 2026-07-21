@@ -1,0 +1,81 @@
+[gd_scene load_steps=4 format=3 uid="uid://cl74mheu45dsn"]
+
+[ext_resource type="Script" path="res://scripts/ui_hotbar.gd" id="1_ads3h"]
+[ext_resource type="Texture2D" uid="uid://cc24ku6jts1gh" path="res://assets/UI/Hotbar.png" id="2_66h6d"]
+[ext_resource type="FontFile" uid="uid://dkopjbra5u41y" path="res://assets/fonts/Child Hood.otf" id="3_etx37"]
+
+[node name="UI_Hotbar" type="Control" node_paths=PackedStringArray("hotbar_bg", "grid_container", "item_name_label", "item_cursor")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 3.0
+offset_right = -1732.0
+offset_bottom = -314.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ads3h")
+hotbar_bg = NodePath("Hotbar")
+grid_container = NodePath("GridContainer")
+item_name_label = NodePath("ItemNameLabel")
+item_cursor = NodePath("item_cursor")
+
+[node name="Hotbar" type="Sprite2D" parent="."]
+position = Vector2(94, 409.5)
+texture = ExtResource("2_66h6d")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 65.0
+offset_right = 186.0
+offset_bottom = 777.0
+
+[node name="slot1" type="TextureRect" parent="GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(160, 165)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="slot2" type="TextureRect" parent="GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(160, 165)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="slot3" type="TextureRect" parent="GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(160, 165)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="slot4" type="TextureRect" parent="GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(160, 165)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ItemNameLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 185.0
+offset_bottom = 56.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0.313726, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_etx37")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="item_cursor" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 4

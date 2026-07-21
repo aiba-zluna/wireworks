@@ -1,0 +1,244 @@
+[gd_scene load_steps=8 format=3 uid="uid://dyyfkbco8r3mt"]
+
+[ext_resource type="Script" path="res://scripts/ui_menu.gd" id="1_ylnq1"]
+[ext_resource type="Texture2D" uid="uid://bgku4em0mgo4t" path="res://assets/UI/Inventory1.png" id="3_n8t40"]
+[ext_resource type="FontFile" uid="uid://dkopjbra5u41y" path="res://assets/fonts/Child Hood.otf" id="4_lvhgd"]
+[ext_resource type="Texture2D" uid="uid://dni8puvnd6rfl" path="res://assets/UI/Inventory2.png" id="5_j60j4"]
+[ext_resource type="Texture2D" uid="uid://ctpestuxjgn6r" path="res://assets/UI/Inventory3.png" id="6_a7qhx"]
+[ext_resource type="PackedScene" uid="uid://cl74mheu45dsn" path="res://scenes/User Interface/UI_Hotbar.tscn" id="7_6t1iw"]
+[ext_resource type="PackedScene" uid="uid://c8kpvf71tweci" path="res://scenes/User Interface/UI_dialogues.tscn" id="7_tjnvl"]
+
+[node name="UI_Menu" type="Control" node_paths=PackedStringArray("grid_container", "item_info_panel", "item_name_label", "item_description_label", "item_icon_texture")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ylnq1")
+grid_container = NodePath("Van bg/GridContainer")
+item_info_panel = NodePath("Van bg/Panel for Item Info")
+item_name_label = NodePath("Van bg/Panel for Item Info/ItemName")
+item_description_label = NodePath("Van bg/Panel for Item Info/ItemDescription")
+item_icon_texture = NodePath("Van bg/Panel for Item Info/ItemIcon")
+
+[node name="Blur" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.6)
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1078.0
+color = Color(0, 0, 0, 1)
+
+[node name="Van bg" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1101, 538)
+texture = ExtResource("3_n8t40")
+
+[node name="GridContainer" type="GridContainer" parent="Van bg"]
+offset_left = -569.0
+offset_top = -326.0
+offset_right = 83.0
+offset_bottom = 379.0
+columns = 4
+
+[node name="slot1" type="TextureRect" parent="Van bg/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(160, 175)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="slot2" type="TextureRect" parent="Van bg/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(160, 175)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="slot3" type="TextureRect" parent="Van bg/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(160, 175)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="slot4" type="TextureRect" parent="Van bg/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(160, 175)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="slot5" type="TextureRect" parent="Van bg/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(160, 175)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Panel for Item Info" type="Panel" parent="Van bg"]
+offset_left = 148.0
+offset_top = -326.0
+offset_right = 655.0
+offset_bottom = 379.0
+
+[node name="ItemName" type="Label" parent="Van bg/Panel for Item Info"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 200.0
+offset_right = 489.0
+offset_bottom = 326.0
+theme_override_fonts/font = ExtResource("4_lvhgd")
+theme_override_font_sizes/font_size = 70
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ItemDescription" type="Label" parent="Van bg/Panel for Item Info"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 329.0
+offset_right = 472.0
+offset_bottom = 689.0
+theme_override_fonts/font = ExtResource("4_lvhgd")
+theme_override_font_sizes/font_size = 35
+autowrap_mode = 3
+
+[node name="ItemIcon" type="TextureRect" parent="Van bg/Panel for Item Info"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 21.0
+offset_right = 489.0
+offset_bottom = 200.0
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Notes bg" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1101, 538)
+texture = ExtResource("5_j60j4")
+
+[node name="Options bg" type="Sprite2D" parent="."]
+position = Vector2(1101, 538)
+texture = ExtResource("6_a7qhx")
+
+[node name="btn settings" type="Button" parent="Options bg"]
+offset_left = -197.0
+offset_top = -353.0
+offset_right = 189.0
+offset_bottom = -157.0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.207512, 0.207512, 0.207512, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_lvhgd")
+theme_override_font_sizes/font_size = 120
+text = "Settings"
+flat = true
+
+[node name="btn save" type="Button" parent="Options bg"]
+offset_left = -245.0
+offset_top = -196.0
+offset_right = 286.0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.207512, 0.207512, 0.207512, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_lvhgd")
+theme_override_font_sizes/font_size = 120
+text = "Save Game"
+flat = true
+
+[node name="btn main menu" type="Button" parent="Options bg"]
+offset_left = -245.0
+offset_top = -19.0
+offset_right = 254.0
+offset_bottom = 177.0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.207512, 0.207512, 0.207512, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_lvhgd")
+theme_override_font_sizes/font_size = 120
+text = "Main Menu"
+flat = true
+
+[node name="btn exit" type="Button" parent="Options bg"]
+offset_left = -245.0
+offset_top = 154.0
+offset_right = 235.0
+offset_bottom = 350.0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.207512, 0.207512, 0.207512, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_lvhgd")
+theme_override_font_sizes/font_size = 120
+text = "Exit Game"
+flat = true
+
+[node name="btn Van" type="Button" parent="."]
+layout_mode = 0
+offset_left = 560.0
+offset_top = 24.0
+offset_right = 748.0
+offset_bottom = 120.0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.207512, 0.207512, 0.207512, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_lvhgd")
+theme_override_font_sizes/font_size = 70
+text = "Van"
+flat = true
+
+[node name="btn Notes" type="Button" parent="."]
+layout_mode = 0
+offset_left = 782.0
+offset_top = 24.0
+offset_right = 970.0
+offset_bottom = 120.0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.207512, 0.207512, 0.207512, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_lvhgd")
+theme_override_font_sizes/font_size = 70
+text = "Notes"
+flat = true
+
+[node name="btn Options" type="Button" parent="."]
+layout_mode = 0
+offset_left = 986.0
+offset_top = 15.0
+offset_right = 1174.0
+offset_bottom = 111.0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.207512, 0.207512, 0.207512, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_lvhgd")
+theme_override_font_sizes/font_size = 70
+text = "Options"
+flat = true
+
+[node name="btn close inventory" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1558.0
+offset_top = 887.0
+offset_right = 1756.0
+offset_bottom = 995.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_lvhgd")
+theme_override_font_sizes/font_size = 80
+text = "close"
+flat = true
+
+[node name="UI_Hotbar" parent="." instance=ExtResource("7_6t1iw")]
+layout_mode = 1
+offset_top = 120.0
+offset_right = 0.0
+offset_bottom = 120.0
+
+[node name="UI_Dialogue" parent="." instance=ExtResource("7_tjnvl")]
+layout_mode = 1
+
+[connection signal="pressed" from="Options bg/btn save" to="." method="_on_btn_save_pressed"]
+[connection signal="pressed" from="Options bg/btn main menu" to="." method="_on_btn_main_menu_pressed"]
+[connection signal="pressed" from="Options bg/btn exit" to="." method="_on_btn_exit_pressed"]
+[connection signal="pressed" from="btn close inventory" to="." method="_on_btn_close_inventory_pressed"]

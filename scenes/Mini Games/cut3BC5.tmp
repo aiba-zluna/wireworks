@@ -1,0 +1,136 @@
+[gd_scene load_steps=7 format=3 uid="uid://b567jp3g87r6d"]
+
+[ext_resource type="Texture2D" uid="uid://p14ed3d0haqo" path="res://assets/tools/Game Mechanics/Wiring/0.png" id="1_aeemf"]
+[ext_resource type="Script" path="res://scripts/Game Mechanics/Mini Games/cutter_minigame.gd" id="1_iwcys"]
+[ext_resource type="PackedScene" uid="uid://cl74mheu45dsn" path="res://scenes/User Interface/UI_Hotbar.tscn" id="3_40mt8"]
+[ext_resource type="PackedScene" uid="uid://dyyfkbco8r3mt" path="res://scenes/User Interface/UI_Menu.tscn" id="4_2h1xv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_31rui"]
+size = Vector2(52, 392)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rvkyc"]
+size = Vector2(47.5, 390)
+
+[node name="cutter minigame" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 1
+mouse_force_pass_scroll_events = false
+script = ExtResource("1_iwcys")
+left_input = NodePath("left")
+right_input = NodePath("right")
+left_progress_bar = NodePath("left progress")
+right_progress_bar = NodePath("right progress")
+
+[node name="damaged wire" type="Sprite2D" parent="."]
+position = Vector2(960, 696)
+scale = Vector2(1.27504, 1.20949)
+texture = ExtResource("1_aeemf")
+
+[node name="dotted line" type="Sprite2D" parent="."]
+position = Vector2(960, 696)
+scale = Vector2(1.27504, 1.20949)
+
+[node name="Line2D" type="Line2D" parent="dotted line"]
+position = Vector2(-727.036, -489.583)
+scale = Vector2(0.784289, 0.893473)
+points = PackedVector2Array(483, 235, 483, 273.696)
+
+[node name="Line2D2" type="Line2D" parent="dotted line"]
+position = Vector2(-727.036, -434.188)
+scale = Vector2(0.784289, 0.893473)
+points = PackedVector2Array(483, 235, 483, 273.696)
+
+[node name="Line2D3" type="Line2D" parent="dotted line"]
+position = Vector2(-727.036, -382.1)
+scale = Vector2(0.784289, 0.893473)
+points = PackedVector2Array(483, 235, 483, 273.696)
+
+[node name="Line2D4" type="Line2D" parent="dotted line"]
+position = Vector2(-727.036, -326.705)
+scale = Vector2(0.784289, 0.893473)
+points = PackedVector2Array(483, 235, 483, 273.696)
+
+[node name="Line2D5" type="Line2D" parent="dotted line"]
+position = Vector2(-727.036, -277.097)
+scale = Vector2(0.784289, 0.893473)
+points = PackedVector2Array(483, 235, 483, 273.696)
+
+[node name="Line2D6" type="Line2D" parent="dotted line"]
+position = Vector2(-727.036, -221.701)
+scale = Vector2(0.784289, 0.893473)
+points = PackedVector2Array(483, 235, 483, 273.696)
+
+[node name="dotted line2" type="Sprite2D" parent="."]
+position = Vector2(968, 696)
+scale = Vector2(1.27504, 1.20949)
+
+[node name="Line2D" type="Line2D" parent="dotted line2"]
+position = Vector2(-68.2329, -489.583)
+scale = Vector2(0.784289, 0.893473)
+points = PackedVector2Array(483, 235, 483, 273.696)
+
+[node name="Line2D2" type="Line2D" parent="dotted line2"]
+position = Vector2(-68.2329, -434.188)
+scale = Vector2(0.784289, 0.893473)
+points = PackedVector2Array(483, 235, 483, 273.696)
+
+[node name="Line2D3" type="Line2D" parent="dotted line2"]
+position = Vector2(-68.2329, -382.1)
+scale = Vector2(0.784289, 0.893473)
+points = PackedVector2Array(483, 235, 483, 273.696)
+
+[node name="Line2D4" type="Line2D" parent="dotted line2"]
+position = Vector2(-68.2329, -326.704)
+scale = Vector2(0.784289, 0.893473)
+points = PackedVector2Array(483, 235, 483, 273.696)
+
+[node name="Line2D5" type="Line2D" parent="dotted line2"]
+position = Vector2(-68.2329, -277.097)
+scale = Vector2(0.784289, 0.893473)
+points = PackedVector2Array(483, 235, 483, 273.696)
+
+[node name="Line2D6" type="Line2D" parent="dotted line2"]
+position = Vector2(-68.2329, -221.701)
+scale = Vector2(0.784289, 0.893473)
+points = PackedVector2Array(483, 235, 483, 273.696)
+
+[node name="left" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="left"]
+position = Vector2(517, 541)
+shape = SubResource("RectangleShape2D_31rui")
+
+[node name="left progress" type="ProgressBar" parent="."]
+offset_left = 526.0
+offset_top = 275.0
+offset_right = 742.0
+offset_bottom = 317.0
+
+[node name="right" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="right"]
+position = Vector2(1365.25, 540)
+shape = SubResource("RectangleShape2D_rvkyc")
+
+[node name="right progress" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 1111.0
+offset_top = 275.0
+offset_right = 1327.0
+offset_bottom = 317.0
+
+[node name="UI_Menu" parent="." instance=ExtResource("4_2h1xv")]
+offset_left = 4.0
+offset_right = 4.0
+
+[node name="UI_Hotbar" parent="." instance=ExtResource("3_40mt8")]
+layout_mode = 1
+offset_left = -2.0
+offset_top = 144.5
+offset_right = -1734.0
+offset_bottom = -172.5
+
+[connection signal="ready" from="." to="." method="_on_ready"]

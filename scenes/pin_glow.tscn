@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://j3ja7i5t53wv"]
+
+[node name="Pin Glow" type="Node2D"]
+position = Vector2(786, 118)

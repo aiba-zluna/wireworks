@@ -1,0 +1,110 @@
+[gd_scene load_steps=7 format=3 uid="uid://dednrhwj1qw4y"]
+
+[ext_resource type="Script" path="res://scripts/Root Scenes/rootscene_map_rural.gd" id="1_xvrl3"]
+[ext_resource type="Texture2D" uid="uid://dw6xyn1w0mln6" path="res://assets/maps/IsoRural.png" id="2_4kit6"]
+[ext_resource type="Script" path="res://scripts/Transitions/fade2black.gd" id="3_7kt23"]
+[ext_resource type="PackedScene" uid="uid://q1chjl4gh5j1" path="res://scenes/animations/ani_arrow.tscn" id="4_oj43r"]
+[ext_resource type="PackedScene" uid="uid://ba1wcg5r4n2r7" path="res://scenes/animations/ani_exclamation.tscn" id="5_i01v5"]
+[ext_resource type="PackedScene" uid="uid://blk8vyv4rh2ey" path="res://scenes/animations/ani_question.tscn" id="5_ycn34"]
+
+[node name="Map Rural" type="Node2D"]
+script = ExtResource("1_xvrl3")
+hood_quests = {
+"ruralbarns": {
+"available": NodePath("Quest Available/2"),
+"underway": NodePath("Quest Underway/2")
+},
+"ruralhood1": {
+"available": NodePath(""),
+"underway": NodePath("")
+},
+"ruralhood2": {
+"available": NodePath("Quest Available/2"),
+"underway": NodePath("Quest Underway/2")
+}
+}
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 2300.0
+offset_bottom = 1080.0
+texture = ExtResource("2_4kit6")
+metadata/_edit_use_anchors_ = true
+
+[node name="FadeLayer" type="CanvasLayer" parent="."]
+script = ExtResource("3_7kt23")
+
+[node name="ColorRect" type="ColorRect" parent="FadeLayer"]
+modulate = Color(0, 0, 0, 0.00392157)
+self_modulate = Color(0, 0, 0, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationArrow" parent="." instance=ExtResource("4_oj43r")]
+position = Vector2(173, 923)
+rotation = -2.35619
+
+[node name="btn Hood 1" type="Area2D" parent="."]
+
+[node name="CollisionPolygon_Hood1" type="CollisionPolygon2D" parent="btn Hood 1"]
+polygon = PackedVector2Array(164, 263, 165, 324, 517, 499, 570, 473, 567, 415, 574, 412, 555, 373, 520, 348, 494, 360, 460, 386, 454, 393, 427, 382, 426, 345, 435, 342, 414, 304, 379, 278, 356, 291, 323, 316, 314, 325, 289, 311, 288, 278, 296, 273, 277, 235, 240, 209, 216, 221, 187, 244)
+
+[node name="Highlight_Polygon_Hood1" type="Polygon2D" parent="btn Hood 1"]
+color = Color(1, 1, 0, 0)
+polygon = PackedVector2Array(164, 263, 165, 322, 516, 499, 567, 475, 566, 416, 574, 413, 554, 371, 520, 347, 496, 358, 462, 384, 455, 392, 427, 382, 425, 345, 435, 342, 415, 304, 378, 277, 356, 291, 324, 315, 314, 325, 288, 310, 288, 277, 296, 274, 277, 235, 240, 209, 218, 219, 186, 243)
+
+[node name="btn Hood 2" type="Area2D" parent="."]
+
+[node name="CollisionPolygon_Hood2" type="CollisionPolygon2D" parent="btn Hood 2"]
+polygon = PackedVector2Array(1314, 761, 1314, 818, 1793, 1079, 1842, 1054, 1840, 994, 1847, 992, 1828, 953, 1795, 929, 1773, 939, 1732, 967, 1632, 915, 1631, 880, 1639, 875, 1621, 838, 1584, 812, 1562, 823, 1525, 850, 1435, 807, 1433, 770, 1442, 767, 1424, 731, 1387, 705, 1365, 715, 1329, 742)
+
+[node name="Highlight_Polygon_Hood2" type="Polygon2D" parent="btn Hood 2"]
+color = Color(1, 1, 0, 0)
+polygon = PackedVector2Array(1313, 761, 1314, 817, 1792, 1079, 1843, 1056, 1840, 995, 1847, 991, 1828, 953, 1795, 929, 1773, 938, 1733, 965, 1630, 914, 1629, 879, 1638, 876, 1621, 838, 1585, 812, 1563, 823, 1526, 848, 1435, 806, 1433, 773, 1442, 769, 1423, 729, 1386, 704, 1363, 715, 1329, 741)
+
+[node name="btn Barns" type="Area2D" parent="."]
+
+[node name="CollisionPolygon_Barns" type="CollisionPolygon2D" parent="btn Barns"]
+polygon = PackedVector2Array(982, 75, 983, 105, 963, 116, 975, 127, 975, 138, 984, 133, 982, 194, 1313, 361, 1392, 486, 1395, 519, 1366, 535, 1374, 555, 1397, 547, 1393, 605, 1485, 651, 1582, 607, 1575, 489, 1580, 497, 1597, 494, 1614, 513, 1631, 522, 1646, 514, 1661, 532, 1664, 521, 1674, 520, 1680, 498, 1698, 491, 1720, 497, 1726, 515, 1734, 510, 1732, 489, 1709, 462, 1913, 371, 1917, 292, 1872, 261, 1872, 250, 1826, 181, 1781, 136, 1758, 134, 1736, 113, 1736, 91, 1691, 68, 1689, 31, 1671, 8, 1648, -2, 1627, 4, 1605, 16, 1600, 25, 1590, 28, 1592, 37, 1591, 42, 1580, 53, 1563, 45, 1528, 47, 1518, 61, 1509, 71, 1498, 73, 1501, 84, 1489, 100, 1466, 102, 1464, 93, 1454, 93, 1454, 110, 1442, 124, 1419, 124, 1419, 111, 1410, 118, 1407, 130, 1395, 146, 1380, 146, 1361, 121, 1242, 183, 1238, 157, 1207, 114, 1196, 122, 1221, 163, 1177, 187, 1175, 74, 1124, 1, 1006, 64, 1003, 41, 972, 0, 961, 5, 997, 64)
+
+[node name="Highlight_Polygon_Barns" type="Polygon2D" parent="btn Barns"]
+color = Color(1, 1, 0, 0)
+polygon = PackedVector2Array(982, 75, 982, 194, 1313, 360, 1392, 484, 1394, 516, 1367, 535, 1376, 557, 1394, 547, 1393, 605, 1485, 651, 1582, 607, 1577, 490, 1581, 498, 1595, 493, 1610, 509, 1629, 520, 1644, 516, 1657, 532, 1662, 532, 1671, 521, 1677, 498, 1696, 493, 1718, 497, 1724, 512, 1731, 509, 1732, 487, 1706, 459, 1713, 461, 1918, 367, 1919, 293, 1873, 261, 1873, 250, 1825, 181, 1780, 135, 1758, 133, 1736, 114, 1735, 90, 1692, 70, 1688, 29, 1671, 6, 1648, -1, 1618, 3, 1602, 21, 1589, 28, 1589, 39, 1580, 51, 1560, 43, 1527, 45, 1509, 68, 1495, 72, 1500, 84, 1489, 99, 1466, 101, 1461, 94, 1455, 97, 1454, 106, 1443, 122, 1420, 126, 1419, 118, 1414, 115, 1408, 120, 1407, 129, 1397, 143, 1395, 146, 1380, 145, 1362, 120, 1266, 168, 1243, 182, 1237, 157, 1207, 114, 1196, 122, 1220, 161, 1220, 164, 1177, 187, 1175, 75, 1127, 2, 1007, 63, 1003, 41, 972, 0, 960, 6, 996, 62, 995, 65)
+
+[node name="btn_back_to_overview_map" type="Area2D" parent="."]
+
+[node name="CollisionPolygon_Back" type="CollisionPolygon2D" parent="btn_back_to_overview_map"]
+polygon = PackedVector2Array(87, 805, 48, 1046, 291, 1012, 303, 791)
+
+[node name="Quest Available" type="Node2D" parent="."]
+
+[node name="1" parent="Quest Available" instance=ExtResource("5_i01v5")]
+visible = false
+position = Vector2(278, -1)
+
+[node name="2" parent="Quest Available" instance=ExtResource("5_i01v5")]
+visible = false
+position = Vector2(1476, 504)
+
+[node name="3" parent="Quest Available" instance=ExtResource("5_i01v5")]
+visible = false
+position = Vector2(1476, -36)
+
+[node name="Quest Underway" type="Node2D" parent="."]
+
+[node name="1" parent="Quest Underway" instance=ExtResource("5_ycn34")]
+visible = false
+position = Vector2(472, 175)
+
+[node name="2" parent="Quest Underway" instance=ExtResource("5_ycn34")]
+visible = false
+position = Vector2(1667, 681)
+
+[node name="3" parent="Quest Underway" instance=ExtResource("5_ycn34")]
+visible = false
+position = Vector2(1669, 138)

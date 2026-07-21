@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=3 uid="uid://c8kpvf71tweci"]
+
+[ext_resource type="Script" path="res://scripts/Dialogue/DialoguePanel.gd" id="1_cb0hr"]
+[ext_resource type="Texture2D" uid="uid://jbvkr40lnkhr" path="res://assets/UI/dialogueBox.png" id="1_psafx"]
+[ext_resource type="FontFile" uid="uid://dkopjbra5u41y" path="res://assets/fonts/Child Hood.otf" id="2_f3tag"]
+
+[sub_resource type="Animation" id="Animation_0qcj5"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_vxlnr"]
+resource_name = "fade_in"
+
+[sub_resource type="Animation" id="Animation_feo0w"]
+resource_name = "fade_out"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pcwb7"]
+_data = {
+"RESET": SubResource("Animation_0qcj5"),
+"fade_in": SubResource("Animation_vxlnr"),
+"fade_out": SubResource("Animation_feo0w")
+}
+
+[node name="UI_Dialogue" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cb0hr")
+npc_name_path = NodePath("Dialogue Box/NPC")
+dialogue_text_path = NodePath("Dialogue Box/Dialogue")
+portrait_path = NodePath("Dialogue Box/Portrait")
+animation_player_path = NodePath("Dialogue Box/AnimationPlayer")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.584314)
+
+[node name="Dialogue Box" type="Sprite2D" parent="."]
+position = Vector2(963, 839)
+scale = Vector2(0.508065, 0.508065)
+texture = ExtResource("1_psafx")
+
+[node name="Portrait" type="TextureRect" parent="Dialogue Box"]
+offset_left = 600.16
+offset_top = -1616.96
+offset_right = 1692.16
+offset_bottom = -383.959
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Dialogue Box"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_pcwb7")
+}
+
+[node name="NPC" type="Label" parent="Dialogue Box"]
+offset_left = -1706.24
+offset_top = -396.8
+offset_right = -69.2389
+offset_bottom = -146.8
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0470588, 0.00392157, 0.372549, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_f3tag")
+theme_override_font_sizes/font_size = 170
+metadata/_edit_use_anchors_ = true
+
+[node name="Dialogue" type="Label" parent="Dialogue Box"]
+anchors_preset = -1
+anchor_left = 0.657
+anchor_top = 0.706
+anchor_right = 0.657
+anchor_bottom = 0.706
+offset_left = -4071.2
+offset_top = -733.036
+offset_right = -673.2
+offset_bottom = -236.036
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0470588, 0.00392157, 0.372549, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("2_f3tag")
+theme_override_font_sizes/font_size = 150
+autowrap_mode = 3
+clip_text = true
+metadata/_edit_use_anchors_ = true

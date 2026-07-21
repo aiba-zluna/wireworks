@@ -1,0 +1,156 @@
+[gd_scene load_steps=11 format=3 uid="uid://qql4vpn4sqif"]
+
+[ext_resource type="Script" path="res://scripts/Transitions/fade_layer.gd" id="1_c66h6"]
+[ext_resource type="Script" path="res://scripts/Root Scenes/rootscene_menu.gd" id="1_ch8ru"]
+[ext_resource type="FontFile" uid="uid://dkopjbra5u41y" path="res://assets/fonts/Child Hood.otf" id="1_cm8du"]
+[ext_resource type="FontFile" uid="uid://bdu6vjkoqamg0" path="res://assets/fonts/Thorsten.otf" id="2_x5c67"]
+[ext_resource type="Texture2D" uid="uid://dpcjdyc54558c" path="res://assets/icon.png" id="3_qbygj"]
+[ext_resource type="Texture2D" uid="uid://bkuhk1yq1od4o" path="res://assets/coloredTitleScreen.png" id="7_osthi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jruxe"]
+bg_color = Color(0.192157, 0.458824, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y7d3b"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hvhk5"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7rucu"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Menu" type="Control" node_paths=PackedStringArray("pulse_target")]
+layout_mode = 3
+anchor_left = 0.00173611
+anchor_right = 1.00174
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ch8ru")
+pulse_target = NodePath("FadeLayer/Demo")
+metadata/_edit_vertical_guides_ = [-315.0]
+
+[node name="FadeLayer" type="CanvasLayer" parent="."]
+script = ExtResource("1_c66h6")
+
+[node name="ColoredTitleScreen" type="Sprite2D" parent="FadeLayer"]
+modulate = Color(0.364084, 0.364084, 0.364084, 1)
+position = Vector2(960, 538.5)
+scale = Vector2(1, 1.00278)
+texture = ExtResource("7_osthi")
+
+[node name="New Game" type="Button" parent="FadeLayer"]
+anchors_preset = -1
+anchor_left = 0.346354
+anchor_top = 0.570988
+anchor_right = 0.65191
+anchor_bottom = 0.679012
+offset_left = 16.3333
+offset_top = 3.0
+offset_right = -9.66675
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_cm8du")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_jruxe")
+text = "New Game"
+metadata/_edit_use_anchors_ = true
+
+[node name="Load Game" type="Button" parent="FadeLayer"]
+anchors_preset = -1
+anchor_left = 0.353299
+anchor_top = 0.674383
+anchor_right = 0.646701
+anchor_bottom = 0.751543
+offset_left = 3.33331
+offset_right = 3.33337
+offset_bottom = 6.10352e-05
+theme_override_fonts/font = ExtResource("1_cm8du")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_y7d3b")
+text = "Load Game"
+metadata/_edit_use_anchors_ = true
+
+[node name="Options" type="Button" parent="FadeLayer"]
+anchors_preset = -1
+anchor_left = 0.372396
+anchor_top = 0.751543
+anchor_right = 0.62934
+anchor_bottom = 0.828704
+offset_left = 3.33331
+offset_top = 6.10352e-05
+offset_right = 3.33325
+theme_override_fonts/font = ExtResource("1_cm8du")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_hvhk5")
+text = "Options"
+metadata/_edit_use_anchors_ = true
+
+[node name="Exit" type="Button" parent="FadeLayer"]
+anchors_preset = -1
+anchor_left = 0.372396
+anchor_top = 0.828704
+anchor_right = 0.62934
+anchor_bottom = 0.92284
+offset_left = 3.33331
+offset_right = 3.33325
+offset_bottom = -11.0
+theme_override_fonts/font = ExtResource("1_cm8du")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_7rucu")
+text = "Exit"
+metadata/_edit_use_anchors_ = true
+
+[node name="Icon" type="Sprite2D" parent="FadeLayer"]
+position = Vector2(1163.03, 217.969)
+scale = Vector2(0.693761, 0.693761)
+texture = ExtResource("3_qbygj")
+
+[node name="Title" type="RichTextLabel" parent="FadeLayer"]
+anchors_preset = -1
+anchor_left = 0.200346
+anchor_top = 0.0972222
+anchor_right = 0.772392
+anchor_bottom = 0.561728
+offset_left = 3.33334
+offset_right = 3.33337
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_x5c67")
+theme_override_font_sizes/normal_font_size = 250
+text = "Wire 
+	Works"
+metadata/_edit_use_anchors_ = true
+
+[node name="Demo" type="RichTextLabel" parent="FadeLayer"]
+anchors_preset = -1
+anchor_left = 0.200346
+anchor_top = 0.0972222
+anchor_right = 0.772392
+anchor_bottom = 0.561728
+offset_left = 919.336
+offset_top = 452.0
+offset_right = 919.336
+offset_bottom = 452.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.523598
+theme_override_colors/font_outline_color = Color(0.0313726, 0.145098, 0.545098, 1)
+theme_override_constants/outline_size = 50
+theme_override_fonts/normal_font = ExtResource("2_x5c67")
+theme_override_font_sizes/normal_font_size = 100
+text = "demo"
+metadata/_edit_use_anchors_ = true
+
+[node name="ColoredTitleScreen" type="Sprite2D" parent="."]
+modulate = Color(0.0911214, 0.0911215, 0.0911214, 1)
+self_modulate = Color(0.12103, 0.12103, 0.12103, 1)
+position = Vector2(956.667, 538.5)
+scale = Vector2(1, 1.00278)
+texture = ExtResource("7_osthi")
+
+[connection signal="pressed" from="FadeLayer/New Game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="FadeLayer/Load Game" to="." method="_on_load_game_pressed"]
+[connection signal="pressed" from="FadeLayer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="FadeLayer/Exit" to="." method="_on_exit_pressed"]

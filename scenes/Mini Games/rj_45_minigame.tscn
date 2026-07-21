@@ -1,0 +1,174 @@
+[gd_scene load_steps=13 format=3 uid="uid://bfnhtppdck4yc"]
+
+[ext_resource type="Script" path="res://scripts/Game Mechanics/Mini Games/rj_45_minigame.gd" id="1_gs0cm"]
+[ext_resource type="Texture2D" uid="uid://dt6ixj0e3r531" path="res://assets/tools/Game Mechanics/Wiring/4/top.png" id="1_mtx7h"]
+[ext_resource type="Texture2D" uid="uid://bfyujvufu0o7m" path="res://assets/tools/Game Mechanics/Wiring/4/bot.png" id="2_4gjgy"]
+[ext_resource type="Texture2D" uid="uid://t57garmo1n4x" path="res://assets/tools/Game Mechanics/Wiring/wires/Blue.png" id="2_a4txs"]
+[ext_resource type="Texture2D" uid="uid://josvt8nmppp" path="res://assets/tools/Game Mechanics/Wiring/4.png" id="3_fcqwc"]
+[ext_resource type="Texture2D" uid="uid://b0t4qq41nqg8u" path="res://assets/tools/Game Mechanics/Wiring/wires/Brown.png" id="3_p2p2l"]
+[ext_resource type="Texture2D" uid="uid://c74ug8irksa6b" path="res://assets/tools/Game Mechanics/Wiring/wires/Green.png" id="4_tnhss"]
+[ext_resource type="Texture2D" uid="uid://lhch5eph85g1" path="res://assets/tools/Game Mechanics/Wiring/wires/Orange.png" id="5_s76tc"]
+[ext_resource type="Texture2D" uid="uid://de77v3d747neo" path="res://assets/tools/Game Mechanics/Wiring/wires/WhiteBlue.png" id="6_duxhc"]
+[ext_resource type="Texture2D" uid="uid://g3arwvr0mq7" path="res://assets/tools/Game Mechanics/Wiring/wires/WhiteBrown.png" id="7_jj843"]
+[ext_resource type="Texture2D" uid="uid://cvebgojr4xkcm" path="res://assets/tools/Game Mechanics/Wiring/wires/WhiteGreen.png" id="8_kesq2"]
+[ext_resource type="Texture2D" uid="uid://ibdeg21ryjmr" path="res://assets/tools/Game Mechanics/Wiring/wires/WhiteOrange.png" id="9_o11hs"]
+
+[node name="rj45 minigame" type="Control" node_paths=PackedStringArray("rj45_connector", "wires_container", "pin_positions")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 961.0
+offset_top = 696.0
+offset_right = 961.0
+offset_bottom = 696.0
+mouse_filter = 1
+script = ExtResource("1_gs0cm")
+rj45_connector = NodePath("RJ45ConnectorArea")
+wires_container = NodePath("Wire Container")
+pin_positions = [NodePath("RJ45ConnectorArea/Pin Markers/Pin 1"), NodePath("RJ45ConnectorArea/Pin Markers/Pin 2"), NodePath("RJ45ConnectorArea/Pin Markers/Pin 3"), NodePath("RJ45ConnectorArea/Pin Markers/Pin 4"), NodePath("RJ45ConnectorArea/Pin Markers/Pin 5"), NodePath("RJ45ConnectorArea/Pin Markers/Pin 6"), NodePath("RJ45ConnectorArea/Pin Markers/Pin 7"), NodePath("RJ45ConnectorArea/Pin Markers/Pin 8")]
+
+[node name="RJ45ConnectorArea" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
+
+[node name="ConnectorSprite" type="TextureRect" parent="RJ45ConnectorArea"]
+layout_mode = 0
+offset_left = -166.0
+offset_top = -665.0
+offset_right = 136.0
+offset_bottom = -314.0
+texture = ExtResource("3_fcqwc")
+
+[node name="Pin Markers" type="Node2D" parent="RJ45ConnectorArea"]
+position = Vector2(-13, -9)
+
+[node name="Pin 1" type="Marker2D" parent="RJ45ConnectorArea/Pin Markers"]
+position = Vector2(-96, -446)
+
+[node name="Node2D" type="Node2D" parent="RJ45ConnectorArea/Pin Markers/Pin 1"]
+
+[node name="Pin 2" type="Marker2D" parent="RJ45ConnectorArea/Pin Markers"]
+position = Vector2(-72, -446)
+
+[node name="Node2D" type="Node2D" parent="RJ45ConnectorArea/Pin Markers/Pin 2"]
+
+[node name="Pin 3" type="Marker2D" parent="RJ45ConnectorArea/Pin Markers"]
+position = Vector2(-47, -446)
+
+[node name="Node2D" type="Node2D" parent="RJ45ConnectorArea/Pin Markers/Pin 3"]
+
+[node name="Pin 4" type="Marker2D" parent="RJ45ConnectorArea/Pin Markers"]
+position = Vector2(-23, -446)
+
+[node name="Node2D" type="Node2D" parent="RJ45ConnectorArea/Pin Markers/Pin 4"]
+
+[node name="Pin 5" type="Marker2D" parent="RJ45ConnectorArea/Pin Markers"]
+position = Vector2(2, -446)
+
+[node name="Node2D" type="Node2D" parent="RJ45ConnectorArea/Pin Markers/Pin 5"]
+
+[node name="Pin 6" type="Marker2D" parent="RJ45ConnectorArea/Pin Markers"]
+position = Vector2(27, -446)
+
+[node name="Node2D" type="Node2D" parent="RJ45ConnectorArea/Pin Markers/Pin 6"]
+
+[node name="Pin 7" type="Marker2D" parent="RJ45ConnectorArea/Pin Markers"]
+position = Vector2(52, -446)
+
+[node name="Node2D" type="Node2D" parent="RJ45ConnectorArea/Pin Markers/Pin 7"]
+
+[node name="Pin 8" type="Marker2D" parent="RJ45ConnectorArea/Pin Markers"]
+position = Vector2(76, -446)
+
+[node name="Node2D" type="Node2D" parent="RJ45ConnectorArea/Pin Markers/Pin 8"]
+
+[node name="back cover" type="Sprite2D" parent="."]
+position = Vector2(-10, -16)
+scale = Vector2(2.83979, 2.83979)
+texture = ExtResource("1_mtx7h")
+
+[node name="Wire Container" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -31.0
+offset_top = -14.0
+offset_right = -31.0
+offset_bottom = -14.0
+mouse_filter = 1
+
+[node name="Blue" type="TextureRect" parent="Wire Container"]
+layout_mode = 0
+offset_left = -88.0
+offset_top = -225.0
+offset_right = -66.0
+offset_bottom = 347.0
+mouse_filter = 0
+texture = ExtResource("2_a4txs")
+
+[node name="Brown" type="TextureRect" parent="Wire Container"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = -232.0
+offset_right = 34.0
+offset_bottom = 340.0
+mouse_filter = 0
+texture = ExtResource("3_p2p2l")
+
+[node name="Green" type="TextureRect" parent="Wire Container"]
+layout_mode = 0
+offset_left = 66.0
+offset_top = -240.0
+offset_right = 88.0
+offset_bottom = 332.0
+mouse_filter = 0
+texture = ExtResource("4_tnhss")
+
+[node name="Orange" type="TextureRect" parent="Wire Container"]
+layout_mode = 0
+offset_left = 98.0
+offset_top = -206.0
+offset_right = 120.0
+offset_bottom = 366.0
+mouse_filter = 0
+texture = ExtResource("5_s76tc")
+
+[node name="WhiteBlue" type="TextureRect" parent="Wire Container"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = -190.0
+offset_right = 61.0
+offset_bottom = 382.0
+mouse_filter = 0
+texture = ExtResource("6_duxhc")
+
+[node name="WhiteBrown" type="TextureRect" parent="Wire Container"]
+layout_mode = 0
+offset_left = -18.0
+offset_top = -251.0
+offset_right = 4.0
+offset_bottom = 321.0
+mouse_filter = 0
+texture = ExtResource("7_jj843")
+
+[node name="WhiteGreen" type="TextureRect" parent="Wire Container"]
+layout_mode = 0
+offset_left = -35.0
+offset_top = -149.0
+offset_right = -13.0
+offset_bottom = 423.0
+mouse_filter = 0
+texture = ExtResource("8_kesq2")
+
+[node name="WhiteOrange" type="TextureRect" parent="Wire Container"]
+layout_mode = 0
+offset_left = -66.0
+offset_top = -181.0
+offset_right = -44.0
+offset_bottom = 391.0
+mouse_filter = 0
+texture = ExtResource("9_o11hs")
+
+[node name="front cover" type="Sprite2D" parent="."]
+position = Vector2(-23.0001, 498)
+scale = Vector2(2.9142, 3.74221)
+texture = ExtResource("2_4gjgy")

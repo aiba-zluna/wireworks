@@ -1,0 +1,124 @@
+[gd_scene load_steps=15 format=3 uid="uid://b68na0x01lgbq"]
+
+[ext_resource type="Script" path="res://scripts/Animations/animation_cutscene_bg.gd" id="1_56mjr"]
+[ext_resource type="Script" path="res://scripts/Transitions/fade2black.gd" id="1_mdxef"]
+[ext_resource type="Texture2D" uid="uid://c3ue4rmj3t2vg" path="res://assets/Cutscene layers/SkyLayer.png" id="2_54c0y"]
+[ext_resource type="Texture2D" uid="uid://cwd1a8dqpuo00" path="res://assets/Cutscene layers/SilhouetteLayer.png" id="3_b3u2b"]
+[ext_resource type="Texture2D" uid="uid://jbxtsyyj1dot" path="res://assets/Cutscene layers/newBuildingsLayer.png" id="4_y0m4y"]
+[ext_resource type="Texture2D" uid="uid://cnpsr0gae0tde" path="res://assets/Cutscene layers/newRoadLayer.png" id="5_16ig4"]
+[ext_resource type="Texture2D" uid="uid://dx7sxiqkoncbo" path="res://assets/Cutscene layers/CloudLaayer.png" id="6_dlgno"]
+[ext_resource type="Texture2D" uid="uid://mmlrnpwyawjv" path="res://assets/van/frame2.png" id="7_bflbx"]
+[ext_resource type="Texture2D" uid="uid://bqf0kf8lduo54" path="res://assets/Cutscene layers/MiscLayer.png" id="7_isqmi"]
+[ext_resource type="Texture2D" uid="uid://c61hiw3vf7ws0" path="res://assets/van/frame1.png" id="8_0gw4x"]
+[ext_resource type="Texture2D" uid="uid://badvmeer6l6qe" path="res://assets/van/frame3.png" id="9_xt1hw"]
+[ext_resource type="Script" path="res://scripts/Animations/animation_van.gd" id="10_it5yp"]
+[ext_resource type="PackedScene" uid="uid://cvisolfmmot7x" path="res://scenes/dialogue_cutscene.tscn" id="13_jaehn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4fjx0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_0gw4x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bflbx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xt1hw")
+}],
+"loop": true,
+"name": &"van",
+"speed": 16.0
+}]
+
+[node name="Cutscene" type="Node2D"]
+
+[node name="FadeLayer" type="CanvasLayer" parent="."]
+script = ExtResource("1_mdxef")
+fade_time = 3.0
+
+[node name="ColorRect" type="ColorRect" parent="FadeLayer"]
+modulate = Color(0, 0, 0, 0.00392157)
+self_modulate = Color(0, 0, 0, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." node_paths=PackedStringArray("van", "fade_layer")]
+script = ExtResource("1_56mjr")
+speed = 36.0
+van = NodePath("Van")
+fade_layer = NodePath("../FadeLayer")
+
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-2, 539)
+motion_scale = Vector2(2.7, 2.7)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
+position = Vector2(10704, 23)
+scale = Vector2(0.963889, 1.03889)
+texture = ExtResource("2_54c0y")
+offset = Vector2(-5344, 0)
+
+[node name="Silhouette" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-2, 541)
+motion_scale = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Silhouette"]
+position = Vector2(10715, 13.5)
+scale = Vector2(0.9638, 1.025)
+texture = ExtResource("3_b3u2b")
+offset = Vector2(-5344, 0)
+
+[node name="Buildings" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-2, 540)
+motion_scale = Vector2(3, 3)
+
+[node name="Buildings" type="Sprite2D" parent="ParallaxBackground/Buildings"]
+position = Vector2(10710, 1)
+scale = Vector2(0.96441, 1)
+texture = ExtResource("4_y0m4y")
+offset = Vector2(-5344, 0)
+
+[node name="Roaad" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(6128, 541)
+motion_scale = Vector2(3, 3)
+
+[node name="RoadLayer" type="Sprite2D" parent="ParallaxBackground/Roaad"]
+position = Vector2(-569, 0)
+scale = Vector2(0.965625, 1)
+texture = ExtResource("5_16ig4")
+
+[node name="Clouds" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(5785, 539)
+motion_scale = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Clouds"]
+position = Vector2(-219, 0)
+scale = Vector2(0.96441, 1)
+texture = ExtResource("6_dlgno")
+
+[node name="Van" type="AnimatedSprite2D" parent="ParallaxBackground"]
+position = Vector2(1277, 821)
+sprite_frames = SubResource("SpriteFrames_4fjx0")
+animation = &"van"
+script = ExtResource("10_it5yp")
+
+[node name="Misc" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(5785, 539)
+motion_scale = Vector2(3.2, 3.2)
+
+[node name="Misc" type="Sprite2D" parent="ParallaxBackground/Misc"]
+position = Vector2(-209.682, 0)
+scale = Vector2(0.963628, 1)
+texture = ExtResource("7_isqmi")
+offset = Vector2(-5, 0)
+
+[node name="DialogueBox" parent="." instance=ExtResource("13_jaehn")]
+offset_left = 166.0
+offset_top = 306.0
+offset_right = 1611.0
+offset_bottom = 776.0

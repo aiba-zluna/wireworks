@@ -1,0 +1,310 @@
+[gd_scene load_steps=31 format=3 uid="uid://bn4ah8j2ai8fw"]
+
+[ext_resource type="Script" path="res://scripts/Root Scenes/RuralHood2House1.gd" id="1_8wjry"]
+[ext_resource type="Script" path="res://scripts/room_camerascroll.gd" id="1_bqt57"]
+[ext_resource type="Texture2D" uid="uid://cnx6ybc5b7udv" path="res://assets/houses/Rural_hood2_house1.png" id="2_1womk"]
+[ext_resource type="Script" path="res://scripts/Transitions/fade2black.gd" id="3_0gmev"]
+[ext_resource type="PackedScene" uid="uid://q1chjl4gh5j1" path="res://scenes/animations/ani_arrow.tscn" id="5_54l1i"]
+[ext_resource type="Script" path="res://scripts/Game Mechanics/ruralhood2house1.gd" id="6_lacdf"]
+[ext_resource type="PackedScene" uid="uid://c8kpvf71tweci" path="res://scenes/User Interface/UI_dialogues.tscn" id="6_wgvru"]
+[ext_resource type="PackedScene" uid="uid://cl74mheu45dsn" path="res://scenes/User Interface/UI_Hotbar.tscn" id="7_pf8tu"]
+[ext_resource type="Texture2D" uid="uid://p14ed3d0haqo" path="res://assets/tools/Game Mechanics/Wiring/0.png" id="7_ye88l"]
+[ext_resource type="Texture2D" uid="uid://cf2r8a5xa1nx3" path="res://assets/tools/Game Mechanics/Wiring/1.png" id="8_acav1"]
+[ext_resource type="PackedScene" uid="uid://b567jp3g87r6d" path="res://scenes/Mini Games/cutter_minigame.tscn" id="8_bb24d"]
+[ext_resource type="PackedScene" uid="uid://dmpxxoh4y1pqd" path="res://scenes/Mini Games/stripping_minigame.tscn" id="10_xddto"]
+[ext_resource type="Texture2D" uid="uid://y2d77j4uc673" path="res://assets/tools/Game Mechanics/Wiring/3.png" id="12_ffg06"]
+[ext_resource type="PackedScene" uid="uid://bfnhtppdck4yc" path="res://scenes/Mini Games/rj_45_minigame.tscn" id="12_k00uj"]
+[ext_resource type="FontFile" uid="uid://dkopjbra5u41y" path="res://assets/fonts/Child Hood.otf" id="13_ry2kh"]
+[ext_resource type="PackedScene" uid="uid://dkvxt7rqu34cm" path="res://scenes/Mini Games/crimping_minigame.tscn" id="14_lad4q"]
+[ext_resource type="Texture2D" uid="uid://b7no4smxdbrms" path="res://assets/tools/Game Mechanics/Wiring/5.png" id="14_nwq2f"]
+[ext_resource type="PackedScene" uid="uid://cfy502n4nbq4v" path="res://scenes/Mini Games/coupler_minigame.tscn" id="18_7greg"]
+[ext_resource type="Texture2D" uid="uid://cf22u1ugbtipx" path="res://assets/tools/Game Mechanics/Wiring/8 repeat 4.png" id="18_o4v28"]
+[ext_resource type="Texture2D" uid="uid://b7imsl31jpmsy" path="res://assets/tools/Game Mechanics/Wiring/10/left.png" id="19_us2vp"]
+[ext_resource type="Texture2D" uid="uid://b5q57vig4jn2t" path="res://assets/tools/Game Mechanics/Wiring/10/right.png" id="20_q6l2t"]
+[ext_resource type="Texture2D" uid="uid://c3s1suolooy1f" path="res://assets/tools/Game Mechanics/Wiring/10/coupler.png" id="21_wgusm"]
+[ext_resource type="Texture2D" uid="uid://bfe63rjootxls" path="res://assets/tools/Game Mechanics/Wiring/11.png" id="22_jn044"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n62fm"]
+size = Vector2(1348.1, 264.575)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7eqn"]
+size = Vector2(1331.74, 190.206)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_otccm"]
+size = Vector2(1328.82, 292.976)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wbu28"]
+size = Vector2(146.809, 631.21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s603o"]
+size = Vector2(1317.92, 172.419)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kwo1m"]
+size = Vector2(146.526, 642.427)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mr72y"]
+size = Vector2(1068.73, 137.657)
+
+[node name="RuralHood2House1" type="Node2D" node_paths=PackedStringArray("back_area", "router_area", "router_control", "back_to_room_area", "camera")]
+script = ExtResource("1_8wjry")
+back_area = NodePath("Camera2D/AnimationArrow/btn_back_to_hood_2")
+router_area = NodePath("btn h2h1 router")
+router_control = NodePath("Camera2D/damaged wire")
+back_to_room_area = NodePath("Camera2D/damaged wire/back to room")
+camera = NodePath("Camera2D")
+
+[node name="background" type="Sprite2D" parent="." node_paths=PackedStringArray("camera", "sprite")]
+position = Vector2(1215.04, 540.125)
+scale = Vector2(0.373745, 0.373745)
+texture = ExtResource("2_1womk")
+script = ExtResource("1_bqt57")
+camera = NodePath("../Camera2D")
+sprite = NodePath(".")
+
+[node name="FadeLayer" type="CanvasLayer" parent="."]
+script = ExtResource("3_0gmev")
+
+[node name="ColorRect" type="ColorRect" parent="FadeLayer"]
+modulate = Color(0, 0, 0, 0.00392157)
+self_modulate = Color(0, 0, 0, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="btn h2h1 router" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="btn h2h1 router"]
+polygon = PackedVector2Array(1421, 726, 1421, 752, 1528, 752, 1528, 725, 1445, 725, 1446, 719, 1475, 683, 1442, 673, 1413, 682, 1439, 719, 1438, 727)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(960, 540)
+
+[node name="AnimationArrow" parent="Camera2D" instance=ExtResource("5_54l1i")]
+position = Vector2(-815, 427)
+rotation = 3.14159
+scale = Vector2(0.659492, 0.666676)
+
+[node name="btn_back_to_hood_2" type="Area2D" parent="Camera2D/AnimationArrow"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Camera2D/AnimationArrow/btn_back_to_hood_2"]
+polygon = PackedVector2Array(-66.7184, 151.498, 69.7503, 149.998, 75.8158, 58.4995, 171.344, 68.9995, 3.03305, -163.498, -159.214, 56.9989, -63.6855, 52.4991)
+
+[node name="damaged wire" type="Control" parent="Camera2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -960.0
+offset_top = -540.0
+offset_right = -920.0
+offset_bottom = -500.0
+mouse_filter = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D/damaged wire"]
+modulate = Color(1, 1, 1, 0.584314)
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Game Mehanics" type="Node2D" parent="Camera2D/damaged wire" node_paths=PackedStringArray("photos", "minigames", "click_areas", "nope_label")]
+script = ExtResource("6_lacdf")
+photos = [NodePath("0"), NodePath("1"), NodePath("2"), NodePath("3"), NodePath("4"), NodePath("5"), NodePath("6"), NodePath("7"), NodePath("finished")]
+minigames = [NodePath("cutter minigame"), NodePath("stripping minigame"), NodePath("rj45 minigame1"), NodePath("crimping minigame1"), NodePath("rj45 minigame2"), NodePath("crimping minigame2"), NodePath("coupler minigame")]
+click_areas = [NodePath("0/Area2D"), NodePath("1/Area2D"), NodePath("2/Area2D"), NodePath("3/Area2D"), NodePath("4/Area2D"), NodePath("5/Area2D"), NodePath("6/Area2D")]
+nope_label = NodePath("Nope")
+
+[node name="0" type="Sprite2D" parent="Camera2D/damaged wire/Game Mehanics"]
+visible = false
+position = Vector2(960, 696)
+scale = Vector2(1.27504, 1.20949)
+texture = ExtResource("7_ye88l")
+
+[node name="Area2D" type="Area2D" parent="Camera2D/damaged wire/Game Mehanics/0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/damaged wire/Game Mehanics/0/Area2D"]
+position = Vector2(74.8507, -115.751)
+shape = SubResource("RectangleShape2D_n62fm")
+
+[node name="cutter minigame" parent="Camera2D/damaged wire/Game Mehanics" instance=ExtResource("8_bb24d")]
+visible = false
+offset_top = -4.0
+offset_bottom = 1076.0
+
+[node name="1" type="Sprite2D" parent="Camera2D/damaged wire/Game Mehanics"]
+visible = false
+position = Vector2(960, 523)
+scale = Vector2(1.28253, 1.16453)
+texture = ExtResource("8_acav1")
+
+[node name="Area2D" type="Area2D" parent="Camera2D/damaged wire/Game Mehanics/1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/damaged wire/Game Mehanics/1/Area2D"]
+visible = false
+position = Vector2(74.852, -6.22574)
+shape = SubResource("RectangleShape2D_l7eqn")
+
+[node name="stripping minigame" parent="Camera2D/damaged wire/Game Mehanics" instance=ExtResource("10_xddto")]
+visible = false
+
+[node name="2" type="Sprite2D" parent="Camera2D/damaged wire/Game Mehanics"]
+visible = false
+position = Vector2(962.5, 510.75)
+scale = Vector2(1.27933, 1.17416)
+texture = ExtResource("12_ffg06")
+
+[node name="Area2D" type="Area2D" parent="Camera2D/damaged wire/Game Mehanics/2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/damaged wire/Game Mehanics/2/Area2D"]
+position = Vector2(70.7399, -4.89709)
+shape = SubResource("RectangleShape2D_otccm")
+
+[node name="rj45 minigame1" parent="Camera2D/damaged wire/Game Mehanics" instance=ExtResource("12_k00uj")]
+visible = false
+
+[node name="3" type="Sprite2D" parent="Camera2D/damaged wire/Game Mehanics"]
+visible = false
+position = Vector2(956, 708)
+scale = Vector2(1.59016, 1.20636)
+texture = ExtResource("14_nwq2f")
+
+[node name="Area2D" type="Area2D" parent="Camera2D/damaged wire/Game Mehanics/3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/damaged wire/Game Mehanics/3/Area2D"]
+position = Vector2(-0.456177, -8.06885)
+shape = SubResource("RectangleShape2D_wbu28")
+
+[node name="crimping minigame1" parent="Camera2D/damaged wire/Game Mehanics" instance=ExtResource("14_lad4q")]
+visible = false
+wire_initial_position = Vector2(0, 0)
+
+[node name="4" type="Sprite2D" parent="Camera2D/damaged wire/Game Mehanics"]
+visible = false
+position = Vector2(960, 510)
+scale = Vector2(1.28308, 1.20636)
+texture = ExtResource("18_o4v28")
+
+[node name="Area2D" type="Area2D" parent="Camera2D/damaged wire/Game Mehanics/4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/damaged wire/Game Mehanics/4/Area2D"]
+position = Vector2(79.1065, -4.14471)
+shape = SubResource("RectangleShape2D_s603o")
+
+[node name="rj45 minigame2" parent="Camera2D/damaged wire/Game Mehanics" instance=ExtResource("12_k00uj")]
+visible = false
+
+[node name="5" type="Sprite2D" parent="Camera2D/damaged wire/Game Mehanics"]
+visible = false
+position = Vector2(956, 708)
+scale = Vector2(1.59016, 1.20636)
+texture = ExtResource("14_nwq2f")
+
+[node name="Area2D" type="Area2D" parent="Camera2D/damaged wire/Game Mehanics/5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/damaged wire/Game Mehanics/5/Area2D"]
+position = Vector2(2.20099, 0.414612)
+shape = SubResource("RectangleShape2D_kwo1m")
+
+[node name="crimping minigame2" parent="Camera2D/damaged wire/Game Mehanics" instance=ExtResource("14_lad4q")]
+visible = false
+
+[node name="6" type="Sprite2D" parent="Camera2D/damaged wire/Game Mehanics"]
+visible = false
+position = Vector2(956, 708)
+scale = Vector2(1.59016, 1.20636)
+
+[node name="left" type="Sprite2D" parent="Camera2D/damaged wire/Game Mehanics/6"]
+position = Vector2(-476.68, -159.156)
+texture = ExtResource("19_us2vp")
+
+[node name="right" type="Sprite2D" parent="Camera2D/damaged wire/Game Mehanics/6"]
+position = Vector2(545.227, -159.156)
+texture = ExtResource("20_q6l2t")
+
+[node name="Area2D" type="Area2D" parent="Camera2D/damaged wire/Game Mehanics/6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/damaged wire/Game Mehanics/6/Area2D"]
+position = Vector2(63.9717, -159.156)
+shape = SubResource("RectangleShape2D_mr72y")
+
+[node name="coupler minigame" parent="Camera2D/damaged wire/Game Mehanics" instance=ExtResource("18_7greg")]
+visible = false
+
+[node name="7" type="Sprite2D" parent="Camera2D/damaged wire/Game Mehanics"]
+position = Vector2(956, 708)
+scale = Vector2(1.59016, 1.20636)
+
+[node name="left" type="Sprite2D" parent="Camera2D/damaged wire/Game Mehanics/7"]
+position = Vector2(-318.206, -159.156)
+texture = ExtResource("19_us2vp")
+
+[node name="right" type="Sprite2D" parent="Camera2D/damaged wire/Game Mehanics/7"]
+position = Vector2(381.722, -159.156)
+texture = ExtResource("20_q6l2t")
+
+[node name="coupler" type="Sprite2D" parent="Camera2D/damaged wire/Game Mehanics/7"]
+position = Vector2(37.1031, -153.354)
+scale = Vector2(0.600515, 0.67923)
+texture = ExtResource("21_wgusm")
+
+[node name="finished" type="Sprite2D" parent="Camera2D/damaged wire/Game Mehanics"]
+visible = false
+position = Vector2(1028, 562)
+texture = ExtResource("22_jn044")
+
+[node name="Great Work" type="Label" parent="Camera2D/damaged wire/Game Mehanics/finished"]
+offset_left = -615.0
+offset_top = -495.0
+offset_right = -78.0
+offset_bottom = -218.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 0.843137, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("13_ry2kh")
+theme_override_font_sizes/font_size = 100
+text = "GREAT 
+        WORK!!"
+vertical_alignment = 1
+
+[node name="Nope" type="Label" parent="Camera2D/damaged wire/Game Mehanics"]
+visible = false
+offset_left = 685.0
+offset_right = 1222.0
+offset_bottom = 277.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("13_ry2kh")
+theme_override_font_sizes/font_size = 200
+text = "NOPE"
+vertical_alignment = 1
+
+[node name="UI_Hotbar" parent="Camera2D/damaged wire" instance=ExtResource("7_pf8tu")]
+layout_mode = 1
+offset_top = 124.0
+offset_right = -40.0
+offset_bottom = 84.0
+
+[node name="AnimationArrow" parent="Camera2D/damaged wire" instance=ExtResource("5_54l1i")]
+position = Vector2(1783, 958)
+rotation = 3.14159
+scale = Vector2(0.659492, 0.666676)
+
+[node name="back to room" type="Area2D" parent="Camera2D/damaged wire"]
+position = Vector2(1783, 958)
+rotation = 3.14159
+scale = Vector2(0.659492, 0.666676)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Camera2D/damaged wire/back to room"]
+polygon = PackedVector2Array(59.1362, 125.998, 59.1365, 50.9995, 128.887, 44.9998, 10.6147, -140.998, -13.6465, -140.998, -141.018, 38.9991, -59.1365, 34.4994, -53.0715, 136.498)
+
+[node name="UI_Dialogue" parent="Camera2D" instance=ExtResource("6_wgvru")]
+offset_left = -960.0
+offset_top = -540.0
+offset_right = -960.0
+offset_bottom = -540.0

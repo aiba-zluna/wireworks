@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://deladcep8eeas"]
+
+[ext_resource type="Script" path="res://scripts/Dialogue/DialogueData.gd" id="1_8lthp"]
+
+[resource]
+script = ExtResource("1_8lthp")
+dialogue_id = "finished_mc"
+npc_name = ""
+portrait_path = "res://assets/Characters/Rural/NPC.png"
+dialogue_lines = Array[String](["And that's the end of WireWorks demo.", "If you'd liked this idea of using games as a way of teaching, give us a positive feedback!", "Thank you for participating in this evaluation."])
+next_dialogue_id = ""
+trigger_quest = ""
+quest_status_on_complete = ""

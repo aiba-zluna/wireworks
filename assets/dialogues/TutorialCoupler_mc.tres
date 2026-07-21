@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://cdnw2i0f7ttmc"]
+
+[ext_resource type="Script" path="res://scripts/Dialogue/DialogueData.gd" id="1_lbgyt"]
+
+[resource]
+script = ExtResource("1_lbgyt")
+dialogue_id = "coupler_mc"
+npc_name = ""
+portrait_path = "res://assets/transparent.png"
+dialogue_lines = Array[String](["and finally, time to connect them both using the coupler."])
+next_dialogue_id = ""
+trigger_quest = "coupler"
+quest_status_on_complete = "finished"

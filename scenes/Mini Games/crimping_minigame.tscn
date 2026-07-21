@@ -1,0 +1,107 @@
+[gd_scene load_steps=7 format=3 uid="uid://dkvxt7rqu34cm"]
+
+[ext_resource type="Script" path="res://scripts/Game Mechanics/Mini Games/crimping_minigame.gd" id="1_cg8ph"]
+[ext_resource type="Texture2D" uid="uid://ev4dh6ghilxn" path="res://assets/tools/Game Mechanics/Wiring/6.png" id="1_y6t7t"]
+[ext_resource type="Texture2D" uid="uid://3mc21csmk526" path="res://assets/tools/Game Mechanics/Wiring/7.png" id="2_gjhg1"]
+[ext_resource type="Texture2D" uid="uid://yimumefljbns" path="res://assets/tools/Game Mechanics/Wiring/7.5.png" id="3_8i0cm"]
+[ext_resource type="PackedScene" uid="uid://j3ja7i5t53wv" path="res://scenes/pin_glow.tscn" id="3_824pd"]
+[ext_resource type="Script" path="res://scripts/pin_glow.gd" id="4_hrec0"]
+
+[node name="crimping minigame" type="Control" node_paths=PackedStringArray("wire_texture", "pin_marker", "tool_front_view", "tool_side_view", "qte_bar", "qte_needle", "qte_target_area", "progress_indicator", "crimp_button")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -64.0
+offset_top = 83.0
+offset_right = -64.0
+offset_bottom = 83.0
+mouse_filter = 2
+script = ExtResource("1_cg8ph")
+needle_speed = 700.0
+wire_texture = NodePath("uncrimped wire")
+wire_initial_position = Vector2(340, 88)
+pin_marker = NodePath("Pin Slot")
+tool_front_view = NodePath("front tool")
+tool_side_view = NodePath("side tool")
+qte_bar = NodePath("QTE/QTE bar")
+qte_needle = NodePath("QTE/QTE Needle")
+qte_target_area = NodePath("QTE/Target Area")
+progress_indicator = NodePath("QTE/Progress Label")
+crimp_button = NodePath("QTE/Button")
+
+[node name="uncrimped wire" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 329.0
+offset_top = 220.0
+offset_right = 1173.0
+offset_bottom = 411.0
+texture = ExtResource("1_y6t7t")
+
+[node name="PinGlow" parent="uncrimped wire" instance=ExtResource("3_824pd")]
+position = Vector2(814, 118)
+script = ExtResource("4_hrec0")
+
+[node name="front tool" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1395.0
+offset_top = 220.0
+offset_right = 1755.0
+offset_bottom = 895.0
+scale = Vector2(1.03611, 1.02)
+texture = ExtResource("2_gjhg1")
+
+[node name="side tool" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1530.0
+offset_top = 220.0
+offset_right = 1651.0
+offset_bottom = 969.0
+texture = ExtResource("3_8i0cm")
+
+[node name="Pin Slot" type="Marker2D" parent="."]
+position = Vector2(1581, 338)
+
+[node name="PinGlow" parent="Pin Slot" instance=ExtResource("3_824pd")]
+position = Vector2(0, 17)
+script = ExtResource("4_hrec0")
+
+[node name="QTE" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 1030.0
+offset_right = 1746.0
+offset_bottom = 165.0
+
+[node name="Button" type="Button" parent="QTE"]
+layout_mode = 0
+offset_left = -286.0
+offset_top = 570.0
+offset_right = 68.0
+offset_bottom = 715.0
+theme_override_font_sizes/font_size = 100
+text = "CRIMP!"
+
+[node name="QTE bar" type="ColorRect" parent="QTE"]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 716.0
+offset_bottom = 118.0
+
+[node name="Target Area" type="ColorRect" parent="QTE"]
+layout_mode = 0
+offset_left = 413.0
+offset_top = 40.0
+offset_right = 476.0
+offset_bottom = 118.0
+color = Color(0.733333, 1, 0.109804, 1)
+
+[node name="QTE Needle" type="ColorRect" parent="QTE"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 67.0
+offset_right = 14.0
+offset_bottom = 126.0
+color = Color(0, 0, 0, 1)
+
+[node name="Progress Label" type="Label" parent="QTE"]
+layout_mode = 0
+offset_right = 222.0
+offset_bottom = 23.0

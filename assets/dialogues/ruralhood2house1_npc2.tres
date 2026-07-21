@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://l8cuj3stif1y"]
+
+[ext_resource type="Script" path="res://scripts/Dialogue/DialogueData.gd" id="1_cy6pe"]
+
+[resource]
+script = ExtResource("1_cy6pe")
+dialogue_id = "ruralhood2house1_npc2"
+npc_name = "Villager"
+portrait_path = "res://assets/Characters/Rural/Villager2.png"
+dialogue_lines = Array[String](["	Great! There was a rat infestation in our village which destroyed our cables....
+"])
+next_dialogue_id = "ruralhood2house1_npc3"
+trigger_quest = ""
+quest_status_on_complete = ""

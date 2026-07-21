@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://cuevxskefbmex"]
+
+[ext_resource type="FontFile" uid="uid://dkopjbra5u41y" path="res://assets/fonts/Child Hood.otf" id="1_3j1xh"]
+[ext_resource type="Script" path="res://scripts/Dialogue/Rural.gd" id="1_sh2bc"]
+[ext_resource type="Texture2D" uid="uid://djnfutl6jf71h" path="res://assets/Characters/Rural/Villager2.png" id="2_2jf6s"]
+[ext_resource type="Texture2D" uid="uid://d1koqv5m0asdd" path="res://assets/Characters/Rural/Villager1.png" id="3_kwf3a"]
+[ext_resource type="Texture2D" uid="uid://jbvkr40lnkhr" path="res://assets/UI/dialogueBox.png" id="4_8jbfx"]
+
+[node name="Dialogue_Rural" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 1920.0
+offset_bottom = 1080.0
+script = ExtResource("1_sh2bc")
+
+[node name="Villager2" type="Sprite2D" parent="."]
+position = Vector2(1529, 334)
+scale = Vector2(1.14844, 1.14844)
+texture = ExtResource("2_2jf6s")
+
+[node name="Villager1" type="Sprite2D" parent="."]
+position = Vector2(1529, 347.743)
+scale = Vector2(1.14844, 1.09479)
+texture = ExtResource("3_kwf3a")
+
+[node name="Dialogue Box" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.784314)
+position = Vector2(1031, 832)
+scale = Vector2(0.462778, 0.518883)
+texture = ExtResource("4_8jbfx")
+
+[node name="NPC" type="Label" parent="."]
+layout_mode = 0
+offset_left = 227.0
+offset_top = 628.0
+offset_right = 1864.0
+offset_bottom = 771.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0470588, 0.00392157, 0.372549, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_3j1xh")
+theme_override_font_sizes/font_size = 114
+text = "NPC:"
+
+[node name="Dialogue" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.657
+anchor_top = 0.706
+anchor_right = 0.657
+anchor_bottom = 0.706
+offset_left = -1034.44
+offset_top = 8.51996
+offset_right = 561.56
+offset_bottom = 248.52
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0470588, 0.00392157, 0.372549, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_3j1xh")
+theme_override_font_sizes/font_size = 70
+autowrap_mode = 3
+clip_text = true

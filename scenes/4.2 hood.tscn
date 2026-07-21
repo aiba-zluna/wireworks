@@ -1,0 +1,145 @@
+[gd_scene load_steps=10 format=3 uid="uid://kyodkey45fo0"]
+
+[ext_resource type="Script" path="res://scripts/Root Scenes/4-2_hood.gd" id="1_6b8gg"]
+[ext_resource type="Texture2D" uid="uid://2w6u1l3poh7d" path="res://assets/hoods/hood2.png" id="1_gkswq"]
+[ext_resource type="Script" path="res://scripts/Transitions/fade2black.gd" id="1_p2vos"]
+[ext_resource type="PackedScene" uid="uid://blk8vyv4rh2ey" path="res://scenes/animations/ani_question.tscn" id="5_edol4"]
+[ext_resource type="PackedScene" uid="uid://q1chjl4gh5j1" path="res://scenes/animations/ani_arrow.tscn" id="6_8kmi2"]
+[ext_resource type="Texture2D" uid="uid://drses2ri7alph" path="res://assets/van/Van.png" id="6_ut2sb"]
+[ext_resource type="Script" path="res://scripts/btn_van.gd" id="7_gyw6d"]
+[ext_resource type="PackedScene" uid="uid://dyyfkbco8r3mt" path="res://scenes/User Interface/UI_Menu.tscn" id="7_pf87j"]
+[ext_resource type="PackedScene" uid="uid://ba1wcg5r4n2r7" path="res://scenes/animations/ani_exclamation.tscn" id="8_vbl1u"]
+
+[node name="Hood 2" type="Node2D"]
+script = ExtResource("1_6b8gg")
+house_quests = {
+"ruralhood2house1": {
+"available": NodePath("Quest Available/1"),
+"underway": NodePath("Quest Underway/1")
+},
+"ruralhood2house2": {
+"available": NodePath(""),
+"underway": NodePath("")
+},
+"ruralhood2house3": {
+"available": NodePath(""),
+"underway": NodePath("")
+}
+}
+house_buttons = {
+"ruralhood2house1": NodePath("btnHood2House1"),
+"ruralhood2house2": NodePath("btnHood2House2"),
+"ruralhood2house3": NodePath("btnHood2House3")
+}
+house_highlights = {
+"ruralhood2house1": NodePath("btnHood2House1/Highlight_Polygon_Hood2_House1"),
+"ruralhood2house2": NodePath("btnHood2House2/Highlight_Polygon_Hood2_House2"),
+"ruralhood2house3": NodePath("btnHood2House3/Highlight_Polygon_Hood2_House3")
+}
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_gkswq")
+
+[node name="Van BG" type="Sprite2D" parent="."]
+position = Vector2(1326, 938)
+texture = ExtResource("6_ut2sb")
+
+[node name="FadeLayer" type="CanvasLayer" parent="."]
+script = ExtResource("1_p2vos")
+
+[node name="ColorRect" type="ColorRect" parent="FadeLayer"]
+modulate = Color(0, 0, 0, 0.00392157)
+self_modulate = Color(0, 0, 0, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationArrow" parent="." instance=ExtResource("6_8kmi2")]
+position = Vector2(120, 953)
+rotation = -1.57079
+scale = Vector2(0.648871, 0.694037)
+
+[node name="btn_back_to_rural_map" type="Area2D" parent="."]
+
+[node name="CollisionPolygon_Back" type="CollisionPolygon2D" parent="btn_back_to_rural_map"]
+polygon = PackedVector2Array(28, 885, 23, 1024, 221, 1024, 212, 882)
+
+[node name="btnHood2House1" type="Area2D" parent="."]
+
+[node name="CollisionPolygon_Hood2_House1" type="CollisionPolygon2D" parent="btnHood2House1"]
+polygon = PackedVector2Array(120, 472, 112, 517, 23, 620, 18, 660, 79, 669, 74, 822, 471, 823, 474, 669, 525, 666, 525, 620, 422, 517, 418, 477, 406, 468)
+
+[node name="Highlight_Polygon_Hood2_House1" type="Polygon2D" parent="btnHood2House1"]
+position = Vector2(0, -2)
+color = Color(1, 1, 0, 0)
+polygon = PackedVector2Array(118, 471, 118, 471, 115, 512, 23, 625, 22, 663, 79, 669, 76, 817, 469, 823, 476, 665, 522, 661, 526, 639, 523, 620, 425, 520, 414, 472)
+
+[node name="btnHood2House2" type="Area2D" parent="."]
+
+[node name="CollisionPolygon_Hood2_House2" type="CollisionPolygon2D" parent="btnHood2House2"]
+position = Vector2(689, -2)
+polygon = PackedVector2Array(73, 666, 71, 824, 477, 824, 479, 671, 534, 662, 532, 619, 422, 512, 427, 471, 110, 471, 110, 514, 16, 628, 21, 667)
+
+[node name="Highlight_Polygon_Hood2_House2" type="Polygon2D" parent="btnHood2House2"]
+color = Color(1, 1, 0, 0)
+polygon = PackedVector2Array(799, 515, 708, 622, 710, 665, 762, 668, 762, 823, 1172, 823, 1167, 668, 1226, 661, 1218, 617, 1113, 514, 1111, 469, 799, 468)
+
+[node name="btnHood2House3" type="Area2D" parent="."]
+
+[node name="CollisionPolygon_Hood2_House3" type="CollisionPolygon2D" parent="btnHood2House3"]
+position = Vector2(1371, -2)
+polygon = PackedVector2Array(73, 666, 71, 824, 477, 824, 479, 671, 534, 662, 532, 619, 422, 512, 427, 471, 110, 471, 110, 514, 16, 628, 21, 667)
+
+[node name="Highlight_Polygon_Hood2_House3" type="Polygon2D" parent="btnHood2House3"]
+color = Color(1, 1, 0, 0)
+polygon = PackedVector2Array(1483, 469, 1483, 512, 1388, 623, 1391, 666, 1446, 663, 1443, 823, 1845, 826, 1848, 665, 1905, 658, 1902, 615, 1797, 507, 1796, 471)
+
+[node name="btn Van" type="Area2D" parent="."]
+position = Vector2(1326, 938)
+script = ExtResource("7_gyw6d")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="btn Van"]
+polygon = PackedVector2Array(-192, -105, -218, -6, -213, 72, -159, 72, -145, 100, -113, 109, -90, 97, -76, 75, 119, 75, 137, 110, 168, 110, 193, 97, 201, 78, 213, 73, 218, -7, 178, -31, 129, -100, 53, -110)
+
+[node name="HighlightPolygon2D" type="Polygon2D" parent="btn Van"]
+position = Vector2(-1639, -642)
+polygon = PackedVector2Array(1722, 532, 1464, 532, 1446, 539, 1421, 631, 1427, 718, 1482, 718, 1494, 743, 1538, 750, 1564, 719, 1757, 718, 1781, 749, 1815, 754, 1843, 726, 1857, 708, 1857, 636, 1814, 607, 1766, 546)
+
+[node name="UI_Menu" parent="." instance=ExtResource("7_pf87j")]
+visible = false
+
+[node name="Quest Available" type="Node2D" parent="."]
+
+[node name="1" parent="Quest Available" instance=ExtResource("8_vbl1u")]
+visible = false
+position = Vector2(76, 120)
+
+[node name="2" parent="Quest Available" instance=ExtResource("8_vbl1u")]
+visible = false
+position = Vector2(782, 120)
+
+[node name="3" parent="Quest Available" instance=ExtResource("8_vbl1u")]
+visible = false
+position = Vector2(1478, 111)
+
+[node name="Quest Underway" type="Node2D" parent="."]
+
+[node name="1" parent="Quest Underway" instance=ExtResource("5_edol4")]
+visible = false
+position = Vector2(266, 296)
+
+[node name="2" parent="Quest Underway" instance=ExtResource("5_edol4")]
+visible = false
+position = Vector2(970, 296)
+
+[node name="3" parent="Quest Underway" instance=ExtResource("5_edol4")]
+visible = false
+position = Vector2(1675, 296)

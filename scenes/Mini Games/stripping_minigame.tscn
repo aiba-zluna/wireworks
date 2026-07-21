@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=3 uid="uid://dmpxxoh4y1pqd"]
+
+[ext_resource type="Script" path="res://scripts/Game Mechanics/Mini Games/stripping_minigame.gd" id="1_brqc4"]
+[ext_resource type="Texture2D" uid="uid://bkyaqd2j2lvo1" path="res://assets/tools/Game Mechanics/Wiring/left cut.png" id="1_rsyjs"]
+[ext_resource type="Texture2D" uid="uid://da1k0qmgul4qu" path="res://assets/tools/Game Mechanics/Wiring/right cut.png" id="2_yjmvs"]
+[ext_resource type="Texture2D" uid="uid://u4h6njuoncrg" path="res://assets/tools/Game Mechanics/Wiring/right stripped.png" id="4_fothm"]
+[ext_resource type="Texture2D" uid="uid://bnvxfafhwqa3e" path="res://assets/tools/Game Mechanics/Wiring/circle trace.png" id="5_ebfxn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eob6d"]
+radius = 188.175
+
+[node name="stripping minigame" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 960.0
+offset_top = 523.0
+offset_right = 2880.0
+offset_bottom = 1603.0
+mouse_filter = 1
+script = ExtResource("1_brqc4")
+left_input = NodePath("Left")
+right_input = NodePath("Right")
+progress_bar = NodePath("progress")
+left_cut = NodePath("LeftCut")
+right_cut = NodePath("RightCut")
+left_stripped = NodePath("LeftStripped")
+right_stripped = NodePath("RightStripped")
+
+[node name="LeftCut" type="Sprite2D" parent="."]
+position = Vector2(-642.5, 2.49179)
+scale = Vector2(1.27664, 1.18115)
+texture = ExtResource("1_rsyjs")
+
+[node name="CircleTrace" type="Sprite2D" parent="LeftCut"]
+position = Vector2(84.9887, 5.51007)
+scale = Vector2(0.967791, 1.01247)
+texture = ExtResource("5_ebfxn")
+
+[node name="RightCut" type="Sprite2D" parent="."]
+position = Vector2(627.5, -1.77284)
+scale = Vector2(1.2781, 1.1781)
+texture = ExtResource("2_yjmvs")
+
+[node name="CircleTrace2" type="Sprite2D" parent="RightCut"]
+position = Vector2(-116.188, 26.9695)
+rotation = -3.14159
+scale = Vector2(0.966686, 1.01509)
+texture = ExtResource("5_ebfxn")
+
+[node name="progress" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = -421.823
+offset_top = -315.149
+offset_right = 426.177
+offset_bottom = -208.149
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+
+[node name="RightStripped" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(496.75, 3.24998)
+scale = Vector2(1.2868, 1.17315)
+texture = ExtResource("4_fothm")
+
+[node name="LeftStripped" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-488.171, -7.29054)
+rotation = 3.14159
+scale = Vector2(1.27463, 1.22794)
+texture = ExtResource("4_fothm")
+
+[node name="Left" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
+position = Vector2(-526, 0)
+shape = SubResource("CircleShape2D_eob6d")
+
+[node name="Right" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
+position = Vector2(472, 30)
+shape = SubResource("CircleShape2D_eob6d")

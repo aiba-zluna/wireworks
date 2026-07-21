@@ -1,0 +1,48 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Wire Works"
+run/main_scene="res://scenes/1. menu.tscn"
+config/features=PackedStringArray("4.3", "Forward Plus")
+boot_splash/image="res://assets/icon.png"
+boot_splash/fullsize=false
+config/icon="res://assets/icon.png"
+boot_splash/minimum_display_time=3000
+
+[autoload]
+
+WindowManager="*res://scripts/Managers/window_manager.gd"
+FadeLayer="*res://scripts/Transitions/fade_layer.gd"
+UIManager="*res://scripts/Managers/ui_manager.gd"
+GameData="*res://scripts/GameData.gd"
+SaveManager="*res://scripts/Managers/SaveManager.gd"
+QuestManager="*res://scripts/Managers/QuestManager.gd"
+DialogueManager="*res://scripts/Dialogue/DialogueManager.gd"
+DialogueLoader="*res://scripts/Dialogue/DialogueLoader.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=4
+window/size/resizable=false
+window/size/borderless=true
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "green",
+"res://scenes/": "blue",
+"res://scripts/": "red"
+}

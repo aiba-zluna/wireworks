@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=3 uid="uid://cvisolfmmot7x"]
+
+[ext_resource type="Script" path="res://scripts/Dialogue/Cutscene.gd" id="1_i0l8o"]
+[ext_resource type="FontFile" uid="uid://dkopjbra5u41y" path="res://assets/fonts/Child Hood.otf" id="2_8o80f"]
+
+[sub_resource type="Animation" id="Animation_egvpk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bseec"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.366667, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ve1jj"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sf11a"]
+_data = {
+"RESET": SubResource("Animation_egvpk"),
+"fade_in": SubResource("Animation_bseec"),
+"fade_out": SubResource("Animation_ve1jj")
+}
+
+[node name="DialogueBox" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+offset_top = 428.0
+offset_right = 1445.0
+offset_bottom = 898.0
+script = ExtResource("1_i0l8o")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 60.0
+offset_right = 1748.0
+offset_bottom = 506.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0470588, 0.00392157, 0.372549, 1)
+theme_override_constants/outline_size = 14
+theme_override_fonts/font = ExtResource("2_8o80f")
+theme_override_font_sizes/font_size = 60
+autowrap_mode = 2
+clip_text = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Label")
+libraries = {
+"": SubResource("AnimationLibrary_sf11a")
+}

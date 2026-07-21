@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://crqe836dm3xc3"]
+
+[ext_resource type="Script" path="res://scripts/Dialogue/DialogueData.gd" id="1_gmn7w"]
+
+[resource]
+script = ExtResource("1_gmn7w")
+dialogue_id = "crimping_mc"
+npc_name = ""
+portrait_path = "res://assets/transparent.png"
+dialogue_lines = Array[String](["Now I need to CRIMP this wires in place, else they'll just fall off...", "I need to make sure my tool locks it nice and tight until I hear a click thrice"])
+next_dialogue_id = ""
+trigger_quest = "crimping"
+quest_status_on_complete = "finished"
