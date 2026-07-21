@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://67cgurlu7dbm"]
+
+[ext_resource type="Script" path="res://scripts/Dialogue/DialogueData.gd" id="1_dikcb"]
+
+[resource]
+script = ExtResource("1_dikcb")
+dialogue_id = "ruralhood2house1_npc1"
+npc_name = "Villager"
+portrait_path = "res://assets/Characters/Rural/Villager1.png"
+dialogue_lines = Array[String](["	Hi! Are you the network technician that we called?"])
+next_dialogue_id = "ruralhood2house1_npc2"
+trigger_quest = ""
+quest_status_on_complete = ""

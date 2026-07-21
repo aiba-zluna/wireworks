@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://ccygk0osw0fki"]
+
+[ext_resource type="Script" path="res://scripts/Dialogue/DialogueData.gd" id="1_kkdnb"]
+
+[resource]
+script = ExtResource("1_kkdnb")
+dialogue_id = "ruralhood2house1_mc"
+npc_name = ""
+portrait_path = "res://assets/transparent.png"
+dialogue_lines = Array[String](["	Got it sir. We'll make sure your internet is back in no time!", "...", "	Well, I guess I have to LOOK FOR THE PROBLEM in this house...", "	But first, I have to get the appropriate tools in my VAN."])
+next_dialogue_id = ""
+trigger_quest = "ruralhood2house1"
+quest_status_on_complete = "underway"
